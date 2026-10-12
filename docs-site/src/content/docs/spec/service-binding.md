@@ -4,7 +4,7 @@ description: How product shapes map to kernel deals.
 ---
 
 :::caution
-This is a summary. The full specification is in [`docs/SERVICE_BINDING.md`](https://github.com/armanas/froglet/blob/main/docs/SERVICE_BINDING.md).
+This is a summary. The full specification is in [`docs/SERVICE_BINDING.md`](https://github.com/AlitheaBio/froglet/blob/main/docs/SERVICE_BINDING.md).
 :::
 
 ## Scope

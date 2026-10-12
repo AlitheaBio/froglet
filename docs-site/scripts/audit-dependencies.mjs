@@ -13,7 +13,7 @@ const EXPIRES = Date.parse('2026-11-16T00:00:00Z');
 const VERSIONS = { astro: '7.3.5', 'http-cache-semantics': '4.3.0', wrangler: '4.143.1' };
 const EFFECTS = new Set(['http-cache-semantics', 'astro', '@astrojs/mdx', '@astrojs/starlight', 'astro-expressive-code']);
 const HASHES = {
-  astroConfig: 'dc5fe264bffb94d9dc825976caba38584e8c2d239204254f0c75372841d92b79',
+  astroConfig: '40f6e2207d254b268bfb6f2c742e2f472e626bfd0379e5ced06505f63129f791',
   wranglerConfig: '8fb3b99a0b079cdc2a98f0057c2c2036243d925912abc7ad9da05046dcc14250',
   remoteSource: 'f373fa76e3112446db327c79b34e2bbb1ef1dcad41affb60788adf30edc9588e',
   // Only the generated Wasm filename's content hash is normalized. No JavaScript is omitted.

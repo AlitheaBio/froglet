@@ -15,7 +15,7 @@ and its release manifest. If that bundle is missing, stop and use the
 [browser sample](/verify-receipt/) or the [public beta](/services/).
 Do not bypass release verification to make an older release install.
 This guide retains the exact `v0.4.6-beta.4` sharing baseline. The newer immutable
-[v0.4.7-beta.1 prerelease](https://github.com/armanas/froglet/releases/tag/v0.4.7-beta.1)
+[v0.4.7-beta.1 prerelease](https://github.com/AlitheaBio/froglet/releases/tag/v0.4.7-beta.1)
 is available for the [MCP and A2A compute profile](/learn/agent-interoperability/#source-and-release-support).
 Its downloaded Mac binary has separate localhost evidence and a finite six-case
 native-MCP-to-Fly proof. The isolated test host was removed; fresh agent-host,
@@ -121,7 +121,7 @@ transport and recovery limits and the source-to-release deployment steps.
 
 ```bash
 set -eu
-repo=armanas/froglet
+repo=AlitheaBio/froglet
 metadata="$(mktemp "${TMPDIR:-/tmp}/froglet-release.XXXXXX")"
 bootstrap="$(mktemp "${TMPDIR:-/tmp}/froglet-agent-bootstrap.XXXXXX")"
 tag=v0.4.6-beta.4
@@ -186,7 +186,7 @@ after an upgrade so it loads the new bridge executable.
 For an existing node with custom provider limits, do not use the published
 `v0.4.7-beta.1` lifecycle helper to upgrade or roll back: it can drop those
 settings. The preservation correction is currently source-only. See the
-[native upgrade notes](https://github.com/armanas/froglet/blob/main/docs/DOCKER.md#no-clone-user-stack)
+[native upgrade notes](https://github.com/AlitheaBio/froglet/blob/main/docs/DOCKER.md#no-clone-user-stack)
 for the operator-managed update boundary.
 
 It does **not** publish public services, register with the marketplace, or turn
@@ -310,7 +310,7 @@ set `FROGLET_REQUESTER_SPEND_BUDGET_MSAT=500000` for both the `plan` and
 Agents can inspect headroom with the `get_spend_status` MCP action.
 Enforcement happens before any money moves on every rail; check the ledger
 with `GET /v1/runtime/spend`. Free deals need no budget. See
-[Configuration](https://github.com/armanas/froglet/blob/main/docs/CONFIGURATION.md).
+[Configuration](https://github.com/AlitheaBio/froglet/blob/main/docs/CONFIGURATION.md).
 :::
 
 ## Public Registration Choices
@@ -404,7 +404,7 @@ Clone the repo only when you are developing Froglet itself, testing the
 OpenClaw plugin, or changing the checked-in Compose setup:
 
 ```bash
-git clone https://github.com/armanas/froglet.git
+git clone https://github.com/AlitheaBio/froglet.git
 cd froglet
 ```
 

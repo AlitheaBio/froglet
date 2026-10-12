@@ -18,8 +18,8 @@ or a verified local/self-hosted Froglet path.
 | Version | `0.1.5` for `froglet-mcp` |
 | License | Apache-2.0 |
 | Homepage | `https://froglet.dev` |
-| Repository | `https://github.com/armanas/froglet` |
-| Issues | `https://github.com/armanas/froglet/issues` |
+| Repository | `https://github.com/AlitheaBio/froglet` |
+| Issues | `https://github.com/AlitheaBio/froglet/issues` |
 | Category | Developer Tools / AI Agents / Compute |
 | Tags | `mcp`, `model-context-protocol`, `froglet`, `agents`, `verifiable-compute`, `receipts`, `settlement`, `marketplace`, `wasm` |
 

@@ -4,7 +4,7 @@ description: The normative protocol specification.
 ---
 
 :::caution
-This is a summary. The full normative specification is in [`docs/KERNEL.md`](https://github.com/armanas/froglet/blob/main/docs/KERNEL.md) in the froglet repository.
+This is a summary. The full normative specification is in [`docs/KERNEL.md`](https://github.com/AlitheaBio/froglet/blob/main/docs/KERNEL.md) in the froglet repository.
 :::
 
 ## Scope

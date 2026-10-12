@@ -21,7 +21,7 @@ export interface FunctionInfo {
   rust?: string;
 }
 
-const RUST = 'https://github.com/armanas/froglet/blob/main/examples/wasm-services';
+const RUST = 'https://github.com/AlitheaBio/froglet/blob/main/examples/wasm-services';
 
 export const FUNCTIONS: FunctionInfo[] = [
   {

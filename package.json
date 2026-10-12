@@ -8,10 +8,10 @@
   "homepage": "https://froglet.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/armanas/froglet.git"
+    "url": "git+https://github.com/AlitheaBio/froglet.git"
   },
   "bugs": {
-    "url": "https://github.com/armanas/froglet/issues"
+    "url": "https://github.com/AlitheaBio/froglet/issues"
   },
   "keywords": [
     "mcp",

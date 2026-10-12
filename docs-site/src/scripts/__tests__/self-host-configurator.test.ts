@@ -16,7 +16,7 @@ describe('buildSelfHostScript', () => {
     expect(script).toContain("--proto-redir '=https'");
     expect(script).toContain('sh "$bootstrap" plan');
     expect(script).toContain('sh "$bootstrap" execute \'<install_approval_hash>\'');
-    expect(script).not.toContain('git clone https://github.com/armanas/froglet.git');
+    expect(script).not.toContain('git clone https://github.com/AlitheaBio/froglet.git');
     expect(script.match(/^cd froglet$/gm)).toBeNull();
     expect(script).not.toContain('cd froglet &&');
     expect(script).not.toContain('npm ci --prefix integrations/mcp/froglet');

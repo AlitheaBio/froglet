@@ -17,7 +17,7 @@ export default defineConfig({
 				title: 'Froglet',
 				description: 'Identity. Execution. Settlement.',
 				disable404Route: true,
-				social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/armanas/froglet' }],
+				social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/AlitheaBio/froglet' }],
 			head: [
 				{ tag: 'link', attrs: { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' } },
 			],

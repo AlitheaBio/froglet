@@ -5,7 +5,7 @@ description: The canonical test vectors, what they cover, and how to build a sec
 
 Froglet is specified by two things: the prose rules in the
 [kernel spec](/spec/kernel/) and the canonical test vectors in
-[`conformance/kernel_v1.json`](https://github.com/armanas/froglet/blob/main/conformance/kernel_v1.json).
+[`conformance/kernel_v1.json`](https://github.com/AlitheaBio/froglet/blob/main/conformance/kernel_v1.json).
 When they could possibly disagree, **the vectors win** — they are what every
 conforming implementation must reproduce byte-for-byte.
 
@@ -49,8 +49,8 @@ certification process beyond the vectors.
 The repo ships two independent harnesses that consume the same fixture —
 use whichever is closer to your target language as a reference:
 
-- **Rust**: [`tests/kernel_conformance_vectors.rs`](https://github.com/armanas/froglet/blob/main/tests/kernel_conformance_vectors.rs)
-- **Python**: [`python/tests/test_conformance_vectors.py`](https://github.com/armanas/froglet/blob/main/python/tests/test_conformance_vectors.py)
+- **Rust**: [`tests/kernel_conformance_vectors.rs`](https://github.com/AlitheaBio/froglet/blob/main/tests/kernel_conformance_vectors.rs)
+- **Python**: [`python/tests/test_conformance_vectors.py`](https://github.com/AlitheaBio/froglet/blob/main/python/tests/test_conformance_vectors.py)
 
 The Python harness is deliberately dependency-light and is the better
 starting point for a port.
@@ -85,7 +85,7 @@ curl -s 'http://127.0.0.1:8080/v1/feed?limit=50' | cargo run -q -p froglet-verif
 ## Stability
 
 The vectors are governed by the
-[versioning policy](https://github.com/armanas/froglet/blob/main/docs/VERSIONING.md):
+[versioning policy](https://github.com/AlitheaBio/froglet/blob/main/docs/VERSIONING.md):
 `froglet/v1` signing bytes and verification rules are frozen, additions ship
 with new vectors in the same release, and signed artifacts must verify
 forever. Anything not covered by vectors (notably the experimental x402
@@ -100,5 +100,5 @@ drivers — those are implementation surfaces, documented separately and free
 to differ between implementations.
 
 Building a port? Open an issue on
-[GitHub](https://github.com/armanas/froglet/issues) — interoperability reports
+[GitHub](https://github.com/AlitheaBio/froglet/issues) — interoperability reports
 from second implementations get priority attention.

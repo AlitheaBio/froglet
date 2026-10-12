@@ -259,7 +259,7 @@ describe('the functions Bob starts with', () => {
     expect(FUNCTIONS.map((fn) => fn.id)).toEqual(['adder', 'fibonacci', 'echo', 'never-ends']);
     expect(FUNCTIONS.filter((fn) => fn.rust).map((fn) => fn.id)).toEqual(['adder', 'fibonacci']);
     for (const fn of FUNCTIONS.filter((info) => info.rust)) {
-      const path = fn.rust!.replace('https://github.com/armanas/froglet/blob/main/', '');
+      const path = fn.rust!.replace('https://github.com/AlitheaBio/froglet/blob/main/', '');
       expect(existsSync(resolve(repoRoot, path)), path).toBe(true);
     }
     expect(new Set(FUNCTIONS.map((fn) => fn.serviceId)).size).toBe(FUNCTIONS.length);

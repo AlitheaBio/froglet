@@ -9,7 +9,7 @@ replaces it; see
 
 The former public contract (shared session pool, five `demo.*` services, agent
 prompt and failure taxonomy) is preserved in git history:
-[HOSTED_TRIAL.md at f8d7e5e](https://github.com/armanas/froglet/blob/f8d7e5e/docs/HOSTED_TRIAL.md).
+[HOSTED_TRIAL.md at f8d7e5e](https://github.com/AlitheaBio/froglet/blob/f8d7e5e/docs/HOSTED_TRIAL.md).
 
 ## What remains
 

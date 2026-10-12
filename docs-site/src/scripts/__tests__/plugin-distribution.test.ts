@@ -99,7 +99,7 @@ describe('plugin and registry distribution metadata', () => {
       expect(text).toContain('Cursor');
       expect(text).toContain('NemoClaw');
       expect(text).toContain('node -e');
-      expect(text).toContain('claude plugin marketplace add armanas/froglet --sparse .claude-plugin plugins');
+      expect(text).toContain('claude plugin marketplace add AlitheaBio/froglet --sparse .claude-plugin plugins');
       expect(text).not.toContain('apps.froglet.dev');
       expect(text).not.toContain('chatgpt-app');
     }

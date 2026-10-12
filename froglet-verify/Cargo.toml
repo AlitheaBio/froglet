@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 authors = ["Armanas Povilionis-Muradian"]
 homepage = "https://froglet.dev"
-repository = "https://github.com/armanas/froglet"
+repository = "https://github.com/AlitheaBio/froglet"
 description = "Standalone offline verifier for Froglet signed-artifact chains: envelope crypto, per-kind semantics, and full-chain validation with no network, clock, or node dependency"
 license = "Apache-2.0"
 

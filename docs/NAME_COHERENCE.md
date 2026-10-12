@@ -1,6 +1,6 @@
 # Froglet Name Coherence Check
 
-Date: 2026-05-06
+Date: 2026-05-06 (repository location updated 2026-10-12)
 
 This is a lightweight launch-risk check for using `Froglet` as an open source
 protocol/project name. It is not legal advice, not attorney trademark
@@ -11,9 +11,11 @@ clearance, and not a guarantee that future registry state will remain the same.
 No obvious software or infrastructure trademark collision was found in this
 pass. The visible registry collisions are operational, not launch-blocking:
 `froglet` is already taken on PyPI, the `froglet` GitHub user is taken, and the
-`froglet` Docker Hub user is taken. The MVP should keep shipping under
-`github.com/armanas/froglet`, `ghcr.io/armanas/*`, and the existing public npm
-package `froglet-mcp`.
+`froglet` Docker Hub user is taken. The canonical repository moved from
+`github.com/armanas/froglet` to `github.com/AlitheaBio/froglet` on 2026-10-12;
+GitHub redirects the old URLs. Images from releases published before the move
+stay under `ghcr.io/armanas/*`, and later releases publish under
+`ghcr.io/alitheabio/*`. The public npm package remains `froglet-mcp`.
 
 The direct `froglet` name should not be used for a Python distribution. Use
 `froglet-protocol` or another explicit package name if a public Python package
@@ -23,8 +25,8 @@ is published later.
 
 | Surface | 2026-05-06 observation | MVP decision |
 |---|---|---|
-| GitHub repository | `armanas/froglet` exists and is the canonical public repo. The `froglet` GitHub user exists; `froglet` organization lookup returned 404. | Keep canonical URLs under `github.com/armanas/froglet`; do not claim a `froglet` GitHub org/user namespace. |
-| GHCR | Project docs and release surfaces use `ghcr.io/armanas/*`. | Keep using GHCR under `armanas`; Docker Hub is not required for MVP. |
+| GitHub repository | `armanas/froglet` exists and is the canonical public repo. The `froglet` GitHub user exists; `froglet` organization lookup returned 404. | Canonical URLs are under `github.com/AlitheaBio/froglet` since 2026-10-12. Never create a new `armanas/froglet` repository, because that would replace GitHub's redirect. Do not claim a `froglet` GitHub org/user namespace. |
+| GHCR | Project docs and release surfaces use `ghcr.io/armanas/*`. | Releases before 2026-10-12 keep their images under `ghcr.io/armanas/*`; later releases publish under `ghcr.io/alitheabio/*`. Docker Hub is not required for MVP. |
 | Docker Hub | `froglet` user exists. `armanas` user exists, but the checked `armanas` repository listing returned no public repos. | Do not claim Docker Hub `froglet`; keep GHCR as the supported container registry. |
 | npm | `froglet-mcp` exists with latest `0.1.5`. `froglet` returned 404. `@froglet/mcp-server` returned 404 and the local package is marked private. | Public install path remains `npx froglet-mcp`. Do not imply public ownership of `@froglet/*` until that scope is actually secured and published. |
 | PyPI | `froglet` exists as an unrelated package: summary `Client for Frog server`, latest `0.3`, homepage `github.com/hslatman/froglet`. `froglet-protocol` and `froglet_protocol` returned 404. | Do not publish as `froglet` on PyPI. Reserve or publish `froglet-protocol` if/when Python packaging becomes public. |
@@ -52,7 +54,8 @@ the operator accepts the remaining non-legal risk.
 ## Launch Decisions
 
 - Keep `Froglet` as the open source protocol/project name for the MVP.
-- Keep the repository and image names under `armanas/*` and `ghcr.io/armanas/*`.
+- Keep the repository under `AlitheaBio/froglet`; publish new images under
+  `ghcr.io/alitheabio/*` and leave the earlier `ghcr.io/armanas/*` images in place.
 - Keep the public MCP package as `froglet-mcp`.
 - Do not publish a Python package named `froglet`.
 - Do not claim the `froglet` GitHub user, Docker Hub user, PyPI name, or public
@@ -73,7 +76,7 @@ the operator accepts the remaining non-legal risk.
 - PyPI `froglet`: <https://pypi.org/project/froglet/>
 - crates.io `froglet`: <https://crates.io/crates/froglet>
 - crates.io `froglet-protocol`: <https://crates.io/crates/froglet-protocol>
-- GitHub `armanas/froglet`: <https://github.com/armanas/froglet>
+- GitHub `AlitheaBio/froglet`: <https://github.com/AlitheaBio/froglet>
 - GitHub `froglet` user: <https://github.com/froglet>
 - Docker Hub `froglet` user: <https://hub.docker.com/u/froglet>
 - Docker Hub `armanas` user: <https://hub.docker.com/u/armanas>

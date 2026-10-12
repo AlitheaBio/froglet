@@ -12,7 +12,7 @@ Maintained by [Armanas Povilionis-Muradian](https://armanas.dev).
 
 ## Versioning
 
-The current immutable public prerelease is [v0.4.7-beta.1](https://github.com/armanas/froglet/releases/tag/v0.4.7-beta.1),
+The current immutable public prerelease is [v0.4.7-beta.1](https://github.com/AlitheaBio/froglet/releases/tag/v0.4.7-beta.1),
 built from source revision `d70cb50017c7c526d1f7ad4faf278da07e8248a4`.
 On 4 October, all eight official assets, the complete Release Bundle, both
 workflow attestations and all four anonymous OCI image references were verified.

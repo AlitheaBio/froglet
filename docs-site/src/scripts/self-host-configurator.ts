@@ -51,7 +51,7 @@ export function buildSelfHostScript(config: SelfHostConfig = DEFAULT_SELF_HOST_C
 
   const bootstrapEnv = `env ${env.length > 0 ? `${env.join(' ')} ` : ''}VERSION="$tag" `;
   lines.push('set -eu');
-  lines.push('repo=armanas/froglet');
+  lines.push('repo=AlitheaBio/froglet');
   lines.push('metadata="$(mktemp "${TMPDIR:-/tmp}/froglet-release.XXXXXX")"');
   lines.push('bootstrap="$(mktemp "${TMPDIR:-/tmp}/froglet-agent-bootstrap.XXXXXX")"');
   lines.push('tag=v0.4.6-beta.4');

@@ -77,7 +77,7 @@ export const routeAgentMetadata = {
 		primary_task: 'local-install-proposal',
 		relevant_tasks: ['local-install-proposal', 'bounded-compute', 'receipt-artifact-verify'],
 		evidence_boundary: 'Current source supports free local MCP/A2A jobs for configured counterparties. Source tests do not prove installed-release support, actual agent attachment, public operation, real-money settlement or output correctness.',
-		canonical_sources: ['/open-source/', '/learn/agent-interoperability/', 'https://github.com/armanas/froglet', 'https://github.com/armanas/froglet/blob/main/conformance/README.md', '/agent-tasks.json'],
+		canonical_sources: ['/open-source/', '/learn/agent-interoperability/', 'https://github.com/AlitheaBio/froglet', 'https://github.com/AlitheaBio/froglet/blob/main/conformance/README.md', '/agent-tasks.json'],
 		preferred_next_action: 'Run cargo run -p froglet-verify -- conformance/kernel_v1.json to confirm the frozen vectors verify offline, then choose the smallest local verification path for the user context.',
 	},
 	verifyReceipt: {

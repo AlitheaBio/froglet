@@ -4,12 +4,12 @@
 
 **The rail-neutral evidence layer for agent transactions.**
 
-[![CI](https://github.com/armanas/froglet/actions/workflows/ci.yml/badge.svg)](https://github.com/armanas/froglet/actions/workflows/ci.yml)
-[![Release](https://github.com/armanas/froglet/actions/workflows/release.yml/badge.svg)](https://github.com/armanas/froglet/actions/workflows/release.yml)
+[![CI](https://github.com/AlitheaBio/froglet/actions/workflows/ci.yml/badge.svg)](https://github.com/AlitheaBio/froglet/actions/workflows/ci.yml)
+[![Release](https://github.com/AlitheaBio/froglet/actions/workflows/release.yml/badge.svg)](https://github.com/AlitheaBio/froglet/actions/workflows/release.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/Rust-1.91.0-orange.svg)](https://www.rust-lang.org/)
 [![Edition](https://img.shields.io/badge/Edition-2024-purple.svg)](https://doc.rust-lang.org/edition-guide/)
-[![Docker](https://img.shields.io/badge/Docker-ghcr.io-2496ED.svg)](https://github.com/armanas/froglet/pkgs/container/froglet-provider)
+[![Docker](https://img.shields.io/badge/Docker-ghcr.io-2496ED.svg)](https://github.com/users/armanas/packages/container/package/froglet-provider)
 
 Whatever rail moves the money, Froglet produces a signed, hash-linked record of
 what was authorised, under which limits, and what the executing party attested
@@ -66,7 +66,7 @@ returned HTTP 200 and matched the local build bytes. See the
 [deployment record and remaining gates](docs/RELEASE.md#effortless-publishing-qualification).
 The last observed hosted compute trial was unavailable; this pass has not
 requalified that deployment. Production and available hosted compute qualification
-remain open. The immutable [v0.4.7-beta.1 prerelease](https://github.com/armanas/froglet/releases/tag/v0.4.7-beta.1) is now
+remain open. The immutable [v0.4.7-beta.1 prerelease](https://github.com/AlitheaBio/froglet/releases/tag/v0.4.7-beta.1) is now
 published; its downloaded Apple Silicon binary passed a separate deterministic
 localhost replay. [Distribution and exact released-Mac evidence](docs/RELEASE.md#versioning)
 also record a separate native-MCP Mac-to-Fly proof: six bounded free cases,
@@ -271,7 +271,7 @@ Minimal full local stack from zero:
 
 ```bash
 set -eu
-repo=armanas/froglet
+repo=AlitheaBio/froglet
 metadata="$(mktemp "${TMPDIR:-/tmp}/froglet-release.XXXXXX")"
 bootstrap="$(mktemp "${TMPDIR:-/tmp}/froglet-agent-bootstrap.XXXXXX")"
 release_url="$(curl -fsSL --proto '=https' --proto-redir '=https' --tlsv1.2 -o /dev/null -w '%{url_effective}' "https://github.com/$repo/releases/latest")"
@@ -738,6 +738,6 @@ separately from the public protocol and self-host docs in this repo.
 
 <div align="center">
 
-**[Docs Manual Source](docs-site/src/content/docs/docs.mdx)** &middot; **[Releases](https://github.com/armanas/froglet/releases)** &middot; **[Discussions](https://github.com/armanas/froglet/discussions)** &middot; **[Issues](https://github.com/armanas/froglet/issues)** &middot; **[License](LICENSE)**
+**[Docs Manual Source](docs-site/src/content/docs/docs.mdx)** &middot; **[Releases](https://github.com/AlitheaBio/froglet/releases)** &middot; **[Discussions](https://github.com/AlitheaBio/froglet/discussions)** &middot; **[Issues](https://github.com/AlitheaBio/froglet/issues)** &middot; **[License](LICENSE)**
 
 </div>

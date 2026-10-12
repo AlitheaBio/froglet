@@ -7,7 +7,7 @@ state transitions, and settlement bindings.
 
 ## Current checkpoint — 4 October 2026
 
-The immutable [v0.4.7-beta.1 prerelease](https://github.com/armanas/froglet/releases/tag/v0.4.7-beta.1) is published from
+The immutable [v0.4.7-beta.1 prerelease](https://github.com/AlitheaBio/froglet/releases/tag/v0.4.7-beta.1) is published from
 `d70cb50017c7c526d1f7ad4faf278da07e8248a4`. Its asset digests, Release Bundle,
 attestations and OCI distribution are verified. The downloaded Mac binary
 `c1ad573f68e8a84d241f8739c3844c52770f7474affc7bbab1cb3cbf8d50ec30`

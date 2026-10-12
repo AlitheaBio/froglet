@@ -79,7 +79,7 @@ describe('For organizations page', () => {
   });
 
   it('points GitHub links at files that exist in the repository', () => {
-    const paths = Array.from(page.matchAll(/https:\/\/github\.com\/armanas\/froglet\/blob\/main\/([^"'#\s)]+)/g)).map((match) => match[1]);
+    const paths = Array.from(page.matchAll(/https:\/\/github\.com\/AlitheaBio\/froglet\/blob\/main\/([^"'#\s)]+)/g)).map((match) => match[1]);
     for (const path of paths) expect(existsSync(resolve(repoRoot, path)), path).toBe(true);
   });
 });

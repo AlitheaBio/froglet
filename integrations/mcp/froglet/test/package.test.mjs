@@ -47,7 +47,7 @@ test("MCP Registry server.json matches npm package metadata", async () => {
   const server = await readRegistryServer()
   assert.equal(server.name, manifest.mcpName)
   assert.equal(server.version, manifest.version)
-  assert.equal(server.repository?.url, "https://github.com/armanas/froglet")
+  assert.equal(server.repository?.url, "https://github.com/AlitheaBio/froglet")
   assert.equal(server.repository?.source, "github")
   assert.equal(server.packages?.[0]?.registryType, "npm")
   assert.equal(server.packages?.[0]?.identifier, manifest.name)

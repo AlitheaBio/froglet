@@ -176,7 +176,7 @@ Use sparse checkout so Claude only fetches plugin metadata and the plugin
 bundle:
 
 ```bash
-claude plugin marketplace add armanas/froglet --sparse .claude-plugin plugins
+claude plugin marketplace add AlitheaBio/froglet --sparse .claude-plugin plugins
 claude plugin install froglet@froglet
 ```
 
@@ -238,7 +238,7 @@ Reusable metadata and directory-specific submission notes live in
 [`docs/MCP_DIRECTORY_SUBMISSIONS.md`](MCP_DIRECTORY_SUBMISSIONS.md). The official
 MCP Registry is active for `io.github.armanas/froglet`; third-party listings
 remain unverified until each public directory shows Froglet pointing at
-`froglet-mcp`, Apache-2.0, `https://github.com/armanas/froglet`, and the
+`froglet-mcp`, Apache-2.0, `https://github.com/AlitheaBio/froglet`, and the
 local/self-hosted MCP boundary.
 
 ## Boundary

@@ -40,7 +40,7 @@ COPY integrations/mcp/froglet/lib/ ./mcp/lib/
 FROM node:22-slim
 LABEL org.opencontainers.image.title="froglet-mcp"
 LABEL org.opencontainers.image.description="MCP server for Froglet services, compute, and marketplace"
-LABEL org.opencontainers.image.url="https://github.com/armanas/froglet"
+LABEL org.opencontainers.image.url="https://github.com/AlitheaBio/froglet"
 
 RUN groupadd --gid 10001 froglet && \
     useradd --uid 10001 --gid 10001 --no-create-home froglet

@@ -70,6 +70,32 @@ jobs:
         env:
           TAG_VERSION: ${{ steps.meta.outputs.version }}
 
+      - name: Verify installer repository matches this repository
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          # The installers compare this name with the release manifest's
+          # source_repository and attestation signer. A mismatch would publish
+          # an immutable release that its own installer refuses.
+          repository = os.environ["GITHUB_REPOSITORY"]
+          defaults = {
+              "scripts/install.sh": r'^REPO="\$\{FROGLET_INSTALL_REPO:-([^}]+)\}"$',
+              "scripts/agent-bootstrap.sh": r'^REPO="\$\{FROGLET_INSTALL_REPO:-([^}]+)\}"$',
+              "scripts/froglet-service.sh": r'^REPO="\$\{FROGLET_INSTALL_REPO:-([^}]+)\}"$',
+              "integrations/shared/froglet-lib/tool-dispatch.js": r'^const INSTALL_REPOSITORY = "([^"]+)"$',
+          }
+          mismatches = []
+          for path, pattern in defaults.items():
+              found = re.findall(pattern, Path(path).read_text(), re.MULTILINE)
+              if found != [repository]:
+                  mismatches.append(f"{path}: install repository {found!r} does not match {repository!r}")
+          if mismatches:
+              raise SystemExit("\n".join(mismatches))
+          PY
+
       - name: Verify OpenClaw plugin versions are consistent
         run: |
           python3 - <<'PY'

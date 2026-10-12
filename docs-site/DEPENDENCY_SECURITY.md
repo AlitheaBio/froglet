@@ -280,3 +280,19 @@ The application review was extended, with owner approval, from
 release newer than 4.3.0 exists on the npm registry as of this review, and
 the observed max-stale/shared-cookie behavior remains unremediated. Versions,
 consumer graph, configuration pins and advisory identity checks are unchanged.
+
+### 12 October 2026 repository-link configuration requalification
+
+The repository moved from `armanas/froglet` to `AlitheaBio/froglet`. The only
+change to `astro.config.mjs` is the Starlight GitHub social link `href`; the
+default static output, the absence of an `output` or `adapter` key, and every
+other line are byte-identical to the reviewed configuration. No Worker source,
+dependency version, `wrangler.jsonc` or remote-image caller changed, so the
+complete normalized Worker pin is unchanged. The guard delta updates only this
+fingerprint:
+
+| Reviewed bytes | SHA-256 |
+| --- | --- |
+| `astro.config.mjs` | `40f6e2207d254b268bfb6f2c742e2f472e626bfd0379e5ced06505f63129f791` |
+
+The **2026-11-16 00:00 UTC** expiry and all rejection controls are unchanged.

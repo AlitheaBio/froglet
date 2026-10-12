@@ -39,7 +39,7 @@ The single source of truth for kernel types. Independently reimplementable.
 | `oci_worker` | The wire contract for isolated OCI execution workers |
 | `ExecutionRuntime` | Enum shared across crates |
 
-Its dependencies are listed in [`froglet-protocol/Cargo.toml`](https://github.com/armanas/froglet/blob/main/froglet-protocol/Cargo.toml).
+Its dependencies are listed in [`froglet-protocol/Cargo.toml`](https://github.com/AlitheaBio/froglet/blob/main/froglet-protocol/Cargo.toml).
 
 ## froglet (the node crate)
 

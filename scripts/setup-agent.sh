@@ -384,7 +384,7 @@ EOF
     ;;
   openclaw)
     if [[ -z "$repo_root" ]]; then
-      fail "openclaw target requires the froglet repo cloned. The OpenClaw plugin is a local folder (integrations/openclaw/froglet). Clone https://github.com/armanas/froglet and re-run scripts/setup-agent.sh from the repo root, or use --target claude-code for a Docker-based MCP config."
+      fail "openclaw target requires the froglet repo cloned. The OpenClaw plugin is a local folder (integrations/openclaw/froglet). Clone https://github.com/AlitheaBio/froglet and re-run scripts/setup-agent.sh from the repo root, or use --target claude-code for a Docker-based MCP config."
     fi
     out_path="${out_path:-$repo_root/.froglet/openclaw.config.json}"
     prepare_output

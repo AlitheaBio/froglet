@@ -10,7 +10,7 @@ import { MATURITY, MATURITY_LADDER, RAILS, statusLabel } from '../data/maturity'
 import '../styles/developers.css';
 import '../styles/playground.css';
 
-const GITHUB = 'https://github.com/armanas/froglet';
+const GITHUB = 'https://github.com/AlitheaBio/froglet';
 const blob = (path: string) => `${GITHUB}/blob/main/${path}`;
 const tree = (path: string) => `${GITHUB}/tree/main/${path}`;
 
@@ -120,13 +120,13 @@ const build = [
   { name: 'Implement froglet/v1', text: 'The conformance vectors define it and include their seeds, so you can re-derive every signature. There is no certification beyond reproducing them.', links: [['Conformance guide', '/spec/conformance/'], ['The vectors', blob('conformance/kernel_v1.json')]] },
   { name: 'Connect an agent', text: 'Attach the MCP server to Claude Code, Codex, or another agent host, or use the OpenClaw plugin.', links: [['Connect agents', '/learn/agents/'], ['Plugin distribution', '/learn/plugin-distribution/']] },
   { name: 'Publish a service', text: 'Prepare a service, review an example, and approve it before anything is published from a node you run.', links: [['Provider setup', '/learn/provider-onboarding/'], ['Start sharing', '/publish/']] },
-  { name: 'Contribute', text: 'Sign off every commit with git commit -s. There is a Developer Certificate of Origin, and no CLA. A change to signing, hashing, or artifact structure must update conformance/kernel_v1.json and say why. Only the latest release receives fixes.', links: [['Contributing guide', blob('CONTRIBUTING.md')], ['Security policy', blob('SECURITY.md')], ['Discussions', 'https://github.com/armanas/froglet/discussions']] },
+  { name: 'Contribute', text: 'Sign off every commit with git commit -s. There is a Developer Certificate of Origin, and no CLA. A change to signing, hashing, or artifact structure must update conformance/kernel_v1.json and say why. Only the latest release receives fixes.', links: [['Contributing guide', blob('CONTRIBUTING.md')], ['Security policy', blob('SECURITY.md')], ['Discussions', 'https://github.com/AlitheaBio/froglet/discussions']] },
 ];
 ---
 <StoryLayout title="Open source, built for developers · Froglet" description="Implement, run, and verify Froglet: an open signed-evidence protocol, a Rust reference node, an offline verifier that runs in your browser, and public conformance vectors." path="/open-source/">
 <AgentMeta slot="head" route="openSource" />
 <div class="story-wrap story-wrap--dev">
-  <section class="story-hero story-hero--compact story-hero--dev"><div class="story-hero__copy"><span class="story-kicker">For developers · Apache-2.0 · Public beta</span><h1>Implement it.<br />Run it.<br /><span class="story-accent">Verify it.</span></h1><p class="story-lede">Froglet combines signed service exchange with a runtime for bounded remote computation and an offline verifier. The kernel is frozen and covered by public vectors, so you can build on it or reimplement it.</p><div class="story-needs"><ul aria-label="At a glance"><li>froglet/v1 frozen</li><li>Rust 1.91</li><li>Apache-2.0</li><li>Public beta</li></ul></div><div class="story-actions"><a class="btn primary" href="#verify">Verify a chain now</a><a class="btn secondary" href="https://github.com/armanas/froglet" target="_blank" rel="noreferrer">View the source</a></div></div><StoryArt name="10-open-source" width={1536} height={1024} eager alt="Bob and Alice assemble an open service toolkit." /></section>
+  <section class="story-hero story-hero--compact story-hero--dev"><div class="story-hero__copy"><span class="story-kicker">For developers · Apache-2.0 · Public beta</span><h1>Implement it.<br />Run it.<br /><span class="story-accent">Verify it.</span></h1><p class="story-lede">Froglet combines signed service exchange with a runtime for bounded remote computation and an offline verifier. The kernel is frozen and covered by public vectors, so you can build on it or reimplement it.</p><div class="story-needs"><ul aria-label="At a glance"><li>froglet/v1 frozen</li><li>Rust 1.91</li><li>Apache-2.0</li><li>Public beta</li></ul></div><div class="story-actions"><a class="btn primary" href="#verify">Verify a chain now</a><a class="btn secondary" href="https://github.com/AlitheaBio/froglet" target="_blank" rel="noreferrer">View the source</a></div></div><StoryArt name="10-open-source" width={1536} height={1024} eager alt="Bob and Alice assemble an open service toolkit." /></section>
 
   <nav class="dev-toc-wrap" aria-label="On this page"><ul class="dev-toc"><li><a href="#verify">Verify</a></li><li><a href="#playground">Playground</a></li><li><a href="#vision">Vision</a></li><li><a href="#remote-compute">Remote compute</a></li><li><a href="#tools">Tools</a></li><li><a href="#examples">Examples</a></li><li><a href="#integrations">Status</a></li><li><a href="#build">Build</a></li></ul></nav>
 
@@ -294,7 +294,7 @@ const build = [
       <tr><th scope="row">Yours, in any language</th><td>Yes</td><td>Reproduce the vectors.</td></tr>
     </tbody></table></div>
     <p class="dev-note">Several Rust runners exercise different distribution paths, but they share one implementation and do not add diversity. The Python verifier is the only independent implementation so far, and it is verify-only.</p>
-    <div class="story-faq dev-gap"><details><summary>All runtimes, integrations, and evidence</summary><div class="story-scroll"><table class="story-table dev-table"><thead><tr><th scope="col">Integration</th><th scope="col">Status</th><th scope="col">Evidence and limits</th></tr></thead><tbody>{MATURITY.filter(item => item.kind !== 'payment rail').map(item => <tr><th scope="row">{item.name}</th><td><span class="dev-pill" data-status={item.status}>{statusLabel(item.status)}</span></td><td>{item.note} {['mcp', 'a2a'].includes(item.id) ? <a href="/learn/agent-interoperability/#source-and-release-support">Release scope and qualification</a> : <a href={`https://github.com/armanas/froglet/blob/main/${item.evidence}`}>Source evidence</a>}</td></tr>)}</tbody></table></div></details></div>
+    <div class="story-faq dev-gap"><details><summary>All runtimes, integrations, and evidence</summary><div class="story-scroll"><table class="story-table dev-table"><thead><tr><th scope="col">Integration</th><th scope="col">Status</th><th scope="col">Evidence and limits</th></tr></thead><tbody>{MATURITY.filter(item => item.kind !== 'payment rail').map(item => <tr><th scope="row">{item.name}</th><td><span class="dev-pill" data-status={item.status}>{statusLabel(item.status)}</span></td><td>{item.note} {['mcp', 'a2a'].includes(item.id) ? <a href="/learn/agent-interoperability/#source-and-release-support">Release scope and qualification</a> : <a href={`https://github.com/AlitheaBio/froglet/blob/main/${item.evidence}`}>Source evidence</a>}</td></tr>)}</tbody></table></div></details></div>
     <div class="story-faq dev-gap"><details><summary>Supported, experimental, disabled and planned functionality</summary><SupportMatrix id="developer-support-matrix" /></details></div>
     <p class="story-note dev-gap">In a browser, you can verify signed records and run the playground above: a provider and a consumer for free deals that live in your tab. The node, the CLI, and the agent integrations run on a machine you control. For current batch and GPU constraints, see the <a href="/learn/cloud-trial/">advanced workflow boundaries</a>. Tor is an advanced self-hosted path. Confidential execution and selective disclosure remain specifications. The <a href="/learn/agent-interoperability/#fresh-program-evidence">newly generated program attempt</a> has independently correct outputs, but incomplete fresh-session qualification.</p></section>
 
@@ -304,7 +304,7 @@ const build = [
     <ul class="dev-doclist">{specs.map(([file, text]) => <li><a href={blob(`docs/${file}`)}><strong>{file}</strong></a> — {text}</li>)}</ul>
   </section>
 
-  <section class="story-closing"><h2>Make one useful thing work.</h2><div class="story-actions"><a class="btn primary" href="/publish/">Prepare a service</a><a class="btn secondary" href="https://github.com/armanas/froglet/discussions" target="_blank" rel="noreferrer">Join the discussion</a></div></section>
+  <section class="story-closing"><h2>Make one useful thing work.</h2><div class="story-actions"><a class="btn primary" href="/publish/">Prepare a service</a><a class="btn secondary" href="https://github.com/AlitheaBio/froglet/discussions" target="_blank" rel="noreferrer">Join the discussion</a></div></section>
 </div>
 </StoryLayout>
 <script>

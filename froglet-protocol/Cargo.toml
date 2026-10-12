@@ -4,7 +4,7 @@ version = "0.5.0"
 edition = "2024"
 authors = ["Armanas Povilionis-Muradian"]
 homepage = "https://armanas.dev"
-repository = "https://github.com/armanas/froglet"
+repository = "https://github.com/AlitheaBio/froglet"
 description = "Froglet economic protocol: signed artifacts, canonical serialization, and cryptographic verification"
 
 [features]

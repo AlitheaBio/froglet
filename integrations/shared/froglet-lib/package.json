@@ -4,8 +4,8 @@
   "version": "0.1.0-alpha.1",
   "type": "module",
   "author": "Armanas Povilionis-Muradian",
-  "homepage": "https://github.com/armanas/froglet",
-  "repository": "https://github.com/armanas/froglet",
+  "homepage": "https://github.com/AlitheaBio/froglet",
+  "repository": "https://github.com/AlitheaBio/froglet",
   "engines": {
     "node": ">=18"
   }

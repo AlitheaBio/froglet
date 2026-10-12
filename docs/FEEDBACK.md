@@ -2,7 +2,7 @@
 
 Froglet's MVP feedback channel is GitHub Discussions:
 
-<https://github.com/armanas/froglet/discussions>
+<https://github.com/AlitheaBio/froglet/discussions>
 
 Use GitHub Issues only for concrete bugs, regressions, docs breakage, and
 accepted implementation work. Use Discussions for launch feedback, install

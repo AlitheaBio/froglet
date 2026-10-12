@@ -228,7 +228,7 @@ describe('The shared support matrix preserves implementation and qualification b
     expect(component).toContain('SUPPORT_MATRIX.map');
     expect(component).toContain('SUPPORT_STATUSES[row.status]');
     expect(component).toContain('Source reference:');
-    expect(component).not.toContain('github.com/armanas/froglet/blob/main');
+    expect(component).not.toContain('github.com/AlitheaBio/froglet/blob/main');
     expect(new Set(SUPPORT_MATRIX.map(row => row.id)).size).toBe(SUPPORT_MATRIX.length);
   });
 

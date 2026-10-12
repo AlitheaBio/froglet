@@ -8,7 +8,7 @@ body:
         Froglet is a protocol plus a reference node. Feature requests land
         fastest when they describe the problem and the constraint, not just a
         desired implementation. For open-ended design discussion, use
-        [Discussions](https://github.com/armanas/froglet/discussions) instead
+        [Discussions](https://github.com/AlitheaBio/froglet/discussions) instead
         of filing an issue.
 
   - type: textarea

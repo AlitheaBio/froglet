@@ -14,7 +14,7 @@
     "metadata_url": "https://m7ntw7vi3ccyerbge4xjpura2jp2yior7hsovmdh6jgqdgk6s7ma.relay.froglet.dev/.well-known/agent-card.json"
   },
   "access": {
-    "request_url": "https://github.com/armanas/froglet/discussions/new?category=q-a",
+    "request_url": "https://github.com/AlitheaBio/froglet/discussions/new?category=q-a",
     "session_expires_at": "2026-10-05T16:09:52Z"
   },
   "capacity": {
