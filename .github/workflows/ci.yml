@@ -101,7 +101,12 @@ jobs:
         run: cargo install cargo-tarpaulin --locked --quiet
 
       - name: Generate coverage report
-        run: cargo tarpaulin --workspace --out xml --skip-clean --timeout 300
+        # LLVM instrumentation, not tarpaulin's x86_64 default (ptrace). Ptrace
+        # traces every forked child and aborts the whole run on any SIGSEGV,
+        # including the one the kernel sends a worker exec'd under a 1-byte
+        # RLIMIT_AS (builtin_worker address-space test). Its breakpoint traps
+        # also push 1s execution deadlines past their limit.
+        run: cargo tarpaulin --engine llvm --workspace --out xml --skip-clean --timeout 300
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
