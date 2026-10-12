@@ -2,7 +2,7 @@
 name = "froglet-wasm"
 version = "0.1.0"
 edition = "2024"
-authors = ["Armanas Povilionis-Muradian"]
+authors = ["Armanas Povilionis"]
 homepage = "https://froglet.dev"
 repository = "https://github.com/AlitheaBio/froglet"
 description = "The signing half of the Froglet kernel compiled for the browser: fresh identities, artifact signing, and canonical hashing, used by the froglet.dev playground"

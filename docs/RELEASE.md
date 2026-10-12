@@ -8,7 +8,7 @@ New tags cut by the current workflow also publish the non-Kernel
 [`froglet.release-bundle.v1`](PUBLICATION_CONTRACT.md#release-bundle-v1)
 manifest that binds source, binary checksums, and immutable role-image digests.
 
-Maintained by [Armanas Povilionis-Muradian](https://armanas.dev).
+Created and maintained by [Armanas Povilionis](https://armanas.dev).
 
 ## Versioning
 
@@ -227,7 +227,7 @@ unchanged. Confirm the package version and changelog before
 cutting a real release; keep new changes under `Unreleased` until that decision.
 
 The companion repository has its own
-[`LAUNCH/README.md`](https://github.com/armanas/froglet-services/blob/main/LAUNCH/README.md) and exact source
+`LAUNCH/README.md` (private `froglet-services` repository, not open source) and exact source
 pin. Publish and verify the public immutable release first, then update the
 companion pin and regenerate its lockfile against that exact source before
 building the matching hosted release. Do not point it at `main`, copy a local

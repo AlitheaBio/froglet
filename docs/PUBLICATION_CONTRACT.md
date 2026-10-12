@@ -390,7 +390,7 @@ integrity, but the live relay session does not create an artifact signature or
 payload-confidentiality guarantee. The node implementation is
 [`src/relay_tunnel.rs`](../src/relay_tunnel.rs); the matching service contract
 is exercised in the
-[sibling relay implementation](https://github.com/armanas/froglet-services/blob/main/services/relay/src/lib.rs)
+sibling relay implementation (private `froglet-services` repository, not open source)
 and its end-to-end tests.
 
 Froglet ships without a hard-coded production relay pair. An operator or
@@ -550,7 +550,7 @@ AWS, GCP, Azure, Fly, or Kubernetes semantics into the manifest contract. Both
 are required and non-empty for a v4 managed manifest. The public publish engine
 validates this neutral authoring shape but does not provision infrastructure;
 that responsibility belongs to the sibling operator's
-[Managed Deployment contract](https://github.com/armanas/froglet-services/blob/main/services/operator/README.md)
+Managed Deployment contract (private `froglet-services` repository, not open source)
 which defines provider-neutral desired state, adapter capabilities,
 mutation-free planning, and normalized results. Its Lightsail compatibility
 and generic SSH + OCI adapters implement the same initial lifecycle subset

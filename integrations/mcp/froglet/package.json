@@ -5,7 +5,7 @@
   "type": "module",
   "description": "MCP server for Froglet services, projects, and compute.",
   "license": "Apache-2.0",
-  "author": "Armanas Povilionis-Muradian",
+  "author": "Armanas Povilionis",
   "homepage": "https://github.com/AlitheaBio/froglet",
   "repository": "https://github.com/AlitheaBio/froglet",
   "engines": {

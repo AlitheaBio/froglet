@@ -4,7 +4,7 @@ don't apply. If this is a draft, that's fine — mark it Draft so reviewers
 know.
 
 Security issues: do not open a PR that references an unpatched vulnerability.
-Email security@armanas.dev first (see SECURITY.md).
+Email security@alithea-bio.com first (see SECURITY.md).
 -->
 
 ## Summary

@@ -1,7 +1,7 @@
 {
   "name": "froglet",
   "owner": {
-    "name": "Armanas Povilionis-Muradian"
+    "name": "Armanas Povilionis"
   },
   "metadata": {
     "description": "Froglet plugin marketplace for local verifiable compute, signed receipts, settlement, and service publication.",
@@ -14,7 +14,7 @@
       "description": "Connect Claude Code to a local Froglet node for verifiable compute, signed receipts, settlement, and service publication.",
       "version": "0.4.2",
       "author": {
-        "name": "Armanas Povilionis-Muradian"
+        "name": "Armanas Povilionis"
       },
       "homepage": "https://froglet.dev/learn/agents/",
       "repository": "https://github.com/AlitheaBio/froglet",

@@ -21,7 +21,8 @@ Verify a chain yourself in one command:
 cargo run -p froglet-verify -- conformance/kernel_v1.json
 ```
 
-Maintained by [Armanas Povilionis-Muradian](https://armanas.dev).
+Created and maintained by [Armanas Povilionis](https://armanas.dev).<br>
+Copyright Alithea Biotechnology GmbH, which operates the hosted services.
 
 </div>
 
@@ -541,7 +542,7 @@ cd froglet && ./scripts/setup-agent.sh --target codex
 `froglet-service/v4` expresses managed hosting as a provider-neutral
 `target`/`profile`. It does not contain AWS regions, Lightsail names, Fly apps,
 ECR repositories, or cloud SDK types. The sibling
-[Managed Deployment operator](https://github.com/armanas/froglet-services/tree/main/services/operator)
+Managed Deployment operator (private `froglet-services` repository, not open source)
 implements the corresponding portable desired-state lifecycle through the
 current Lightsail compatibility adapter or generic SSH + OCI adapter and
 returns the same normalized result shape. Publish-engine-to-operator wiring
@@ -556,7 +557,7 @@ Arbitrary OCI execution does not give the Froglet Node a Docker/Podman socket.
 The node sends a digest-only, bounded, capability-reduced request to an
 authenticated worker endpoint configured by `FROGLET_OCI_WORKER_URL` and
 `FROGLET_OCI_WORKER_TOKEN_PATH`. The reference
-[OCI worker](https://github.com/armanas/froglet-services/tree/main/services/oci-worker)
+OCI worker (private `froglet-services` repository, not open source)
 owns rootless engine access and defaults to read-only, non-root, no-network
 execution. With no worker configured, OCI execution fails closed.
 
@@ -736,8 +737,9 @@ separately from the public protocol and self-host docs in this repo.
 
 ## License
 
-Froglet is licensed under the [Apache License 2.0](LICENSE).
-Copyright 2026 Alithea Biotechnology GmbH; see [NOTICE](NOTICE).
+Froglet is created and maintained by Armanas Povilionis and licensed under
+the [Apache License 2.0](LICENSE). Copyright 2026 Alithea Biotechnology GmbH;
+see [NOTICE](NOTICE).
 
 ---
 

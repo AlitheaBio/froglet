@@ -3,7 +3,7 @@
   "version": "0.4.2",
   "description": "Connect Claude Code to a local Froglet node for verifiable compute, signed receipts, settlement, and service publication.",
   "author": {
-    "name": "Armanas Povilionis-Muradian",
+    "name": "Armanas Povilionis",
     "url": "https://armanas.dev"
   },
   "homepage": "https://froglet.dev/learn/agents/",

@@ -4,7 +4,7 @@
   "version": "0.1.4",
   "type": "module",
   "description": "Single-tool OpenClaw/NemoClaw plugin for local Froglet services, receipts, and settlement.",
-  "author": "Armanas Povilionis-Muradian",
+  "author": "Armanas Povilionis",
   "homepage": "https://github.com/AlitheaBio/froglet",
   "repository": "https://github.com/AlitheaBio/froglet",
   "engines": {

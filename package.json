@@ -4,7 +4,7 @@
   "type": "module",
   "description": "MCP server for local Froglet verifiable compute, signed receipts, settlement, and service publication.",
   "license": "Apache-2.0",
-  "author": "Armanas Povilionis-Muradian",
+  "author": "Armanas Povilionis",
   "homepage": "https://froglet.dev",
   "repository": {
     "type": "git",

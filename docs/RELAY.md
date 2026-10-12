@@ -5,7 +5,7 @@ client** lives in this repo (`src/relay_tunnel.rs`, configured via
 `FROGLET_RELAY_URL` / `FROGLET_RELAY_PUBLIC_SUFFIX`, tested in
 `tests/relay_tunnel.rs`). The matching relay service and cross-side tests live
 in the
-[sibling services workspace](https://github.com/armanas/froglet-services/tree/main/services/relay).
+sibling services workspace (private `froglet-services` repository, not open source).
 This document is the v1 interface both sides implement.
 
 Relay ingress gives a froglet provider a public HTTPS address without DNS

@@ -2,7 +2,7 @@
   "name": "froglet",
   "version": "0.4.7-beta.1",
   "description": "Discover, invoke, and publish services on the Froglet protocol. Search the marketplace, run compute, manage async tasks.",
-  "author": "Armanas Povilionis-Muradian",
+  "author": "Armanas Povilionis",
   "homepage": "https://github.com/AlitheaBio/froglet",
   "repository": "https://github.com/AlitheaBio/froglet",
   "license": "Apache-2.0",

@@ -3,7 +3,7 @@
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability in Froglet, please report it
-responsibly by emailing **security@armanas.dev**.
+responsibly by emailing **security@alithea-bio.com**.
 
 Please include:
 

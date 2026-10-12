@@ -1,6 +1,6 @@
 # Docs
 
-Maintained by [Armanas Povilionis-Muradian](https://armanas.dev).
+Created and maintained by [Armanas Povilionis](https://armanas.dev).
 
 ## Start Here
 

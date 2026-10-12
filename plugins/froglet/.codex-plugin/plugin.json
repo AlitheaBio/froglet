@@ -3,7 +3,7 @@
   "version": "0.4.2",
   "description": "Connect agents to a local Froglet node for verifiable compute, signed receipts, settlement, and service publication.",
   "author": {
-    "name": "Armanas Povilionis-Muradian",
+    "name": "Armanas Povilionis",
     "url": "https://armanas.dev"
   },
   "homepage": "https://froglet.dev/learn/agents/",
@@ -22,7 +22,7 @@
     "displayName": "Froglet",
     "shortDescription": "Local Froglet actions, signed receipts, and settlement.",
     "longDescription": "Runs the Froglet MCP server through the published npm package against a local or self-hosted Froglet provider/runtime. Use the public llms.txt flow for no-install demo proof; use this plugin for real local actions.",
-    "developerName": "Armanas Povilionis-Muradian",
+    "developerName": "Armanas Povilionis",
     "category": "Developer Tools",
     "capabilities": [
       "Interactive",

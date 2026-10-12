@@ -2,7 +2,7 @@
 name = "froglet-publish-engine"
 version = "0.4.5"
 edition = "2024"
-authors = ["Armanas Povilionis-Muradian"]
+authors = ["Armanas Povilionis"]
 homepage = "https://armanas.dev"
 repository = "https://github.com/AlitheaBio/froglet"
 description = "Two-call plan/approval pipeline for building, verifying, exposing, signing, and registering Froglet services."

@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Pure-Python, zero-dependency offline verifier for Froglet protocol signed-artifact chains."
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
-authors = [{ name = "Froglet" }]
+authors = [{ name = "Armanas Povilionis" }]
 keywords = ["froglet", "verification", "bip340", "schnorr", "jcs", "rfc8785"]
 classifiers = [
     "Development Status :: 3 - Alpha",
