@@ -6,6 +6,7 @@ authors = ["Armanas Povilionis-Muradian"]
 homepage = "https://armanas.dev"
 repository = "https://github.com/AlitheaBio/froglet"
 description = "Froglet economic protocol: signed artifacts, canonical serialization, and cryptographic verification"
+license = "Apache-2.0"
 
 [features]
 default = ["full"]

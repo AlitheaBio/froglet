@@ -39,7 +39,8 @@
     "integrations/shared/froglet-lib/**/*.js",
     "README.md",
     "server.json",
-    "LICENSE"
+    "LICENSE",
+    "NOTICE"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.31.0"

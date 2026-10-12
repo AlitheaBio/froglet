@@ -10,6 +10,7 @@ autobins = false
 authors = ["Armanas Povilionis-Muradian"]
 homepage = "https://armanas.dev"
 repository = "https://github.com/AlitheaBio/froglet"
+license = "Apache-2.0"
 
 [[bin]]
 name = "froglet-node"

@@ -6,6 +6,7 @@ authors = ["Armanas Povilionis-Muradian"]
 homepage = "https://armanas.dev"
 repository = "https://github.com/AlitheaBio/froglet"
 description = "Two-call plan/approval pipeline for building, verifying, exposing, signing, and registering Froglet services."
+license = "Apache-2.0"
 
 [dependencies]
 # The protocol crate is where the manifest schema + signing primitives live.

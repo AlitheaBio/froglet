@@ -36,6 +36,7 @@ test("root npm package includes MCP server and shared client without broad repo 
   assert.ok(files.includes("integrations/shared/froglet-lib/**/*.js"))
   assert.ok(files.includes("server.json"))
   assert.ok(files.includes("LICENSE"))
+  assert.ok(files.includes("NOTICE"))
   assert.ok(files.includes("README.md"))
   assert.equal(files.some((entry) => entry.includes("docs-site")), false)
   assert.equal(files.some((entry) => entry.includes("private_work")), false)

@@ -734,6 +734,11 @@ node integrations/mcp/froglet/test/compose-smoke.mjs
 First-party hosted deployment tooling and operator runbooks are maintained
 separately from the public protocol and self-host docs in this repo.
 
+## License
+
+Froglet is licensed under the [Apache License 2.0](LICENSE).
+Copyright 2026 Alithea Biotechnology GmbH; see [NOTICE](NOTICE).
+
 ---
 
 <div align="center">
