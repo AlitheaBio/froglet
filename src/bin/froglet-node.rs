@@ -1,8 +1,24 @@
 use std::io::Read;
 use std::process::ExitCode;
 
-#[tokio::main]
-async fn main() -> ExitCode {
+fn main() -> ExitCode {
+    // A builtin worker serves one request under its supervisor's RLIMIT_AS.
+    // A multi-thread runtime starts one thread per CPU, each reserving a stack
+    // and a malloc arena, so on a many-core host the worker exhausted its
+    // address space before it could spawn its last runtime thread.
+    let worker = std::env::args().nth(1).as_deref() == Some(froglet::builtin_worker::SUBCOMMAND);
+    let runtime = if worker {
+        tokio::runtime::Builder::new_current_thread()
+    } else {
+        tokio::runtime::Builder::new_multi_thread()
+    }
+    .enable_all()
+    .build()
+    .expect("Failed building the Runtime");
+    runtime.block_on(run())
+}
+
+async fn run() -> ExitCode {
     // Reqwest is compiled without an implicit crypto provider so the release
     // carries one Ring-backed Rustls implementation instead of Ring plus
     // AWS-LC. Install it before any CLI or server path constructs a client.
