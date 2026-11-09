@@ -1,4 +1,4 @@
-import { access, readFile } from "node:fs/promises"
+import { access, readFile, stat } from "node:fs/promises"
 import { constants as fsConstants } from "node:fs"
 import path from "node:path"
 import process from "node:process"
@@ -85,6 +85,40 @@ async function pathReadable(targetPath) {
   }
 }
 
+export async function checkPluginSource(pluginPath) {
+  try {
+    if (!(await stat(pluginPath)).isDirectory()) {
+      return buildCheck("plugin_source", "error", `Plugin path is not a directory: ${pluginPath}`)
+    }
+  } catch {
+    return buildCheck("plugin_source", "error", `Plugin directory is missing or unreadable: ${pluginPath}`)
+  }
+
+  const sharedPath = path.resolve(pluginPath, "../../shared/froglet-lib")
+  const requiredFiles = [
+    ...["index.js", "package.json", "openclaw.plugin.json", "lib/config.js", "lib/shared.js", "lib/froglet-tool.js"]
+      .map((file) => path.join(pluginPath, file)),
+    ...["package.json", "shared.js", "tool-contract.js", "tool-dispatch.js", "froglet-client.js", "summarize.js", "marketplace-publish.js", "url-safety.js"]
+      .map((file) => path.join(sharedPath, file))
+  ]
+  const missingFiles = (await Promise.all(requiredFiles.map(async (file) => {
+    try {
+      return (await stat(file)).isFile() && await pathReadable(file) ? null : file
+    } catch {
+      return file
+    }
+  }))).filter((file) => file !== null)
+
+  return buildCheck(
+    "plugin_source",
+    missingFiles.length === 0 ? "ok" : "error",
+    missingFiles.length === 0
+      ? `Plugin files and shared dependencies are present: ${pluginPath}`
+      : `Plugin staging is incomplete: ${missingFiles.length} required file(s) missing or unreadable`,
+    { plugin_path: pluginPath, shared_path: sharedPath, missing_files: missingFiles }
+  )
+}
+
 function getPluginPath(document) {
   const paths = document?.plugins?.load?.paths
   if (!Array.isArray(paths) || paths.length === 0) {
@@ -144,7 +178,11 @@ export async function checkApis(
   }
 }
 
-function manualCommands(target, config) {
+function shellQuote(value) {
+  return `'${String(value).replace(/'/g, "'\\''")}'`
+}
+
+function manualCommands(target, config, pluginPath) {
   const providerUrl = config.providerUrl
   const runtimeUrl = config.runtimeUrl
   const tokenPath = config.providerAuthTokenPath
@@ -152,8 +190,9 @@ function manualCommands(target, config) {
     return [
       "nemoclaw <sandbox-name> status",
       "openshell sandbox get <sandbox-name>",
-      "openshell sandbox upload <sandbox-name> /absolute/path/to/froglet /sandbox/froglet/integrations/openclaw/froglet",
-      `openshell sandbox upload <sandbox-name> /absolute/path/to/froglet-control.token ${tokenPath}`,
+      `openshell sandbox upload <sandbox-name> /absolute/path/to/froglet/integrations/openclaw/froglet ${shellQuote(path.dirname(pluginPath))}`,
+      `openshell sandbox upload <sandbox-name> /absolute/path/to/froglet/integrations/shared/froglet-lib ${shellQuote(path.resolve(pluginPath, "../../shared"))}`,
+      `openshell sandbox upload <sandbox-name> /absolute/path/to/froglet-control.token ${shellQuote(tokenPath)}`,
       "nemoclaw <sandbox-name> connect",
       `TOKEN=$(cat ${tokenPath})`,
       `curl -H "Authorization: Bearer $TOKEN" ${providerUrl}/health`,
@@ -218,16 +257,7 @@ export async function main() {
   const checks = []
   checks.push(buildCheck("config", "ok", "plugin config parsed", { hostProduct: pluginConfig.hostProduct }))
 
-  const pluginExists = await pathReadable(pluginPath)
-  checks.push(
-    buildCheck(
-      "plugin_source",
-      pluginExists ? "ok" : "error",
-      pluginExists
-        ? `Plugin path exists: ${pluginPath}`
-        : `Plugin path is missing: ${pluginPath}`
-    )
-  )
+  checks.push(await checkPluginSource(pluginPath))
 
   const tokenReadable = await pathReadable(pluginConfig.providerAuthTokenPath)
   const runtimeTokenReadable = await pathReadable(pluginConfig.runtimeAuthTokenPath)
@@ -259,22 +289,26 @@ export async function main() {
         "runtime_health",
         "warning",
         "Runtime check skipped",
-        { manual_commands: manualCommands(target, pluginConfig) }
+        { manual_commands: manualCommands(target, pluginConfig, pluginPath) }
       )
     )
   }
 
+  const status = overallStatus(checks)
   process.stdout.write(
     `${JSON.stringify(
       {
         target,
-        overall_status: overallStatus(checks),
+        overall_status: status,
         checks
       },
       null,
       2
     )}\n`
   )
+  if (status === "error") {
+    process.exitCode = 1
+  }
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

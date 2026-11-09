@@ -14,7 +14,7 @@ permissions:
 jobs:
   reference:
     name: Synthetic scientific workflow and signed evidence
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - name: Check out source
@@ -47,6 +47,7 @@ jobs:
         run: |
           cargo test --locked --manifest-path examples/wasm-services/Cargo.toml -p immunopeptidomics
           python -W error -m unittest python.tests.test_froglet_fl_evidence examples.test_immunopeptidomics_demo -v
+          python -W error integrations/openclaw/froglet/test/openshell-qualification-backend.test.py -v
 
       - name: Build the node and scientific Wasm module
         run: |

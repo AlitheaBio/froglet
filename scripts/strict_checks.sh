@@ -128,6 +128,7 @@ if command -v node >/dev/null 2>&1; then
     node --check integrations/openclaw/froglet/scripts/doctor.mjs
     node --test integrations/openclaw/froglet/test/plugin.test.js \
       integrations/openclaw/froglet/test/*.test.mjs
+    python3 -W error integrations/openclaw/froglet/test/openshell-qualification-backend.test.py -v
 
     echo "[strict] MCP server checks"
     node --check integrations/mcp/froglet/server.js

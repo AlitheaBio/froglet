@@ -74,4 +74,5 @@ Public launch entry points:
 - [MCP_DIRECTORY_SUBMISSIONS.md](MCP_DIRECTORY_SUBMISSIONS.md): MCP directory submission tracking
 - [OPENCLAW.md](OPENCLAW.md): OpenClaw (Claude) integration
 - [NEMOCLAW.md](NEMOCLAW.md): NemoClaw (local agent) integration
+- [OPENSHELL_QUALIFICATION.md](OPENSHELL_QUALIFICATION.md): reproducible allow/deny check for the Froglet plugin in standalone OpenShell
 - [ROLE_TOOL_ARCHITECTURE.md](ROLE_TOOL_ARCHITECTURE.md): role and tool architecture

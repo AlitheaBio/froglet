@@ -46,15 +46,23 @@ Supported plugin keys are the same as OpenClaw:
 
 Use documented OpenShell/NemoClaw commands only.
 
-Stage the plugin:
+Stage the plugin and its shared library, preserving the repository's relative
+directory layout. The plugin imports `integrations/shared/froglet-lib`; uploading
+only the plugin directory leaves those imports unresolved. For a directory
+upload, OpenShell retains the source directory's basename inside the destination,
+so pass its parent directory as the destination:
 
 ```bash
 openshell sandbox upload my-node \
   /absolute/path/to/froglet/integrations/openclaw/froglet \
-  /sandbox/froglet/integrations/openclaw/froglet
+  /sandbox/froglet/integrations/openclaw
+openshell sandbox upload my-node \
+  /absolute/path/to/froglet/integrations/shared/froglet-lib \
+  /sandbox/froglet/integrations/shared
 ```
 
-Stage the Froglet control token:
+Stage the Froglet control token. Unlike a directory upload, this unfiltered
+single-file upload names the destination file:
 
 ```bash
 openshell sandbox upload my-node \
@@ -64,11 +72,21 @@ openshell sandbox upload my-node \
 
 If the host uses a private CA, stage that CA as well.
 
+The token in this example is readable inside the sandbox. This staging flow
+does not implement credential substitution outside the agent workload.
+
 ## Verification
 
-Current status: source-level shared OpenClaw/NemoClaw plugin checks pass, but
-real NemoClaw verification is not complete until a live NemoClaw/OpenShell
-sandbox runs the plugin and calls one Froglet action.
+Full NemoClaw-managed onboarding and plugin execution are not yet verified.
+The [standalone OpenShell qualification](OPENSHELL_QUALIFICATION.md) is a separate
+target: it uses OpenShell 0.1.7, while
+[NemoClaw 0.0.142 pins OpenShell 0.0.116](https://github.com/NVIDIA/NemoClaw/blob/v0.0.142/nemoclaw-blueprint/blueprint.yaml#L7).
+Do not treat a standalone OpenShell result as verification of that NemoClaw stack.
+
+The plugin doctor checks the staged entrypoint, manifest and shared dependency
+files without executing plugin code. An error produces a nonzero exit status;
+a skipped runtime check remains a warning. Passing these checks does not verify
+OpenShell policy enforcement or replace a real tool invocation in the sandbox.
 
 ```bash
 nemoclaw my-node status
@@ -89,7 +107,10 @@ Minimum completion evidence:
 ```bash
 openshell sandbox upload my-node \
   /absolute/path/to/froglet/integrations/openclaw/froglet \
-  /sandbox/froglet/integrations/openclaw/froglet
+  /sandbox/froglet/integrations/openclaw
+openshell sandbox upload my-node \
+  /absolute/path/to/froglet/integrations/shared/froglet-lib \
+  /sandbox/froglet/integrations/shared
 openshell sandbox upload my-node \
   /absolute/path/to/froglet-control.token \
   /sandbox/.openclaw/froglet-control.token
