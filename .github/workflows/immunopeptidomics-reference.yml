@@ -1,0 +1,98 @@
+name: Immunopeptidomics Reference
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'reference/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reference:
+    name: Synthetic scientific workflow and signed evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out source
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@efa25f7f19611383d5b0ccf2d1c8914531636bf9
+        with:
+          toolchain: 1.91.0
+          targets: wasm32-unknown-unknown
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            python/requirements.txt
+            python/requirements-immunopeptidomics.txt
+
+      - name: Cache Rust artifacts
+        uses: Swatinem/rust-cache@42dc69e1aa15d09112580998cf2ef0119e2e91ae # v2
+
+      - name: Install the declared Python environment
+        run: |
+          python -m pip install -r python/requirements-immunopeptidomics.txt
+          python -m pip check
+
+      - name: Test scientific semantics and failure handling
+        run: |
+          cargo test --locked --manifest-path examples/wasm-services/Cargo.toml -p immunopeptidomics
+          python -W error -m unittest python.tests.test_froglet_fl_evidence examples.test_immunopeptidomics_demo -v
+
+      - name: Build the node and scientific Wasm module
+        run: |
+          cargo build --locked --release -p froglet --bin froglet-node
+          cargo build --locked --release --target wasm32-unknown-unknown --manifest-path examples/wasm-services/Cargo.toml -p immunopeptidomics
+
+      - name: Run real local providers through NVIDIA FLARE components
+        run: >-
+          python examples/immunopeptidomics_demo.py
+          --binary target/release/froglet-node
+          --module examples/wasm-services/target/wasm32-unknown-unknown/release/immunopeptidomics.wasm
+          --output "${{ runner.temp }}/immunopeptidomics-success.json"
+
+      - name: Refuse incomplete output when a required provider is unavailable
+        run: |
+          set +e
+          python examples/immunopeptidomics_demo.py \
+            --binary target/release/froglet-node \
+            --module examples/wasm-services/target/wasm32-unknown-unknown/release/immunopeptidomics.wasm \
+            --unavailable-site site_b \
+            --output "$RUNNER_TEMP/immunopeptidomics-failure.json"
+          reference_status=$?
+          set -e
+          test "$reference_status" -eq 1
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads((Path(os.environ['RUNNER_TEMP']) / 'immunopeptidomics-failure.json').read_text())
+          assert report['status'] == 'failed'
+          assert report['phase'] == 'collect_site_counts'
+          assert report['aggregate'] is None
+          assert set(report['workers']) == {'site_a'}
+          assert report['evidence']['missing_participants'] == ['site_b']
+          assert report['evidence']['output'] is None
+          PY
+
+      - name: Record installed dependency versions
+        if: always()
+        run: python -m pip freeze > "${{ runner.temp }}/immunopeptidomics-dependencies.txt"
+
+      - name: Retain reference evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: immunopeptidomics-reference-evidence
+          path: |
+            ${{ runner.temp }}/immunopeptidomics-*.json
+            ${{ runner.temp }}/immunopeptidomics-dependencies.txt
+          if-no-files-found: warn

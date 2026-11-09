@@ -45,6 +45,7 @@ Public launch entry points:
 
 ## Companion Docs
 
+- [IMMUNOPEPTIDOMICS_REFERENCE.md](IMMUNOPEPTIDOMICS_REFERENCE.md): synthetic peptide detection counts through FLARE components and signed Froglet computations
 - [ADAPTERS.md](ADAPTERS.md): transport and execution adapter boundaries
 - [API_ERRORS.md](API_ERRORS.md): API error reference — status codes and error shapes
 - [CONFIDENTIAL.md](CONFIDENTIAL.md): TEE and encrypted execution extension

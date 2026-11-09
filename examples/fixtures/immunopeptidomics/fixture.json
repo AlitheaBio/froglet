@@ -1,0 +1,409 @@
+{
+  "schema_version": "immunopeptidomics.synthetic_fixture.v1",
+  "data_origin": "synthetic",
+  "description": "Invented samples and detections for a class-I sample-genotype-stratified analytics example; not clinical evidence. Sample class and organ are synthetic exact-match vocabulary.",
+  "query": {
+    "candidate_peptide": "ACDEFGHIK",
+    "hla_allele": "HLA-A*02:01",
+    "sample_class": "healthy_tissue",
+    "organ": "synthetic_organ_a"
+  },
+  "sites": {
+    "site_a": {
+      "samples": [
+        {
+          "sample_id": "A1",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A2",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A3",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A4",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "not_measured"
+        },
+        {
+          "sample_id": "A5",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "failed"
+        },
+        {
+          "sample_id": "A6",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A7",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A8",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A9",
+          "sample_class": "tumor_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "A10",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_b",
+          "assay_status": "measured"
+        }
+      ],
+      "sample_hla_typing": [
+        {
+          "sample_id": "A1",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "A1",
+          "allele_name": "HLA-A*24:02"
+        },
+        {
+          "sample_id": "A2",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "A3",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "A4",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "A5",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "A6",
+          "allele_name": "HLA-A*24:02"
+        },
+        {
+          "sample_id": "A7",
+          "allele_name": "HLA-A*24:02"
+        },
+        {
+          "sample_id": "A9",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "A10",
+          "allele_name": "HLA-A*02:01"
+        }
+      ],
+      "sample_hla_typing_status": [
+        {
+          "sample_id": "A1",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "A2",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "A3",
+          "locus": "HLA-A",
+          "status": "incomplete"
+        },
+        {
+          "sample_id": "A4",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "A5",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "A6",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "A7",
+          "locus": "HLA-A",
+          "status": "incomplete"
+        },
+        {
+          "sample_id": "A8",
+          "locus": "HLA-A",
+          "status": "missing"
+        },
+        {
+          "sample_id": "A9",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "A10",
+          "locus": "HLA-A",
+          "status": "complete"
+        }
+      ],
+      "sample_peptide_detections": [
+        {
+          "sample_id": "A1",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "A1",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "A1",
+          "sequence": "KLMNPQRST"
+        },
+        {
+          "sample_id": "A2",
+          "sequence": "KLMNPQRST"
+        },
+        {
+          "sample_id": "A3",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "A6",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "A7",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "A8",
+          "sequence": "KLMNPQRST"
+        },
+        {
+          "sample_id": "A9",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "A10",
+          "sequence": "ACDEFGHIK"
+        }
+      ]
+    },
+    "site_b": {
+      "samples": [
+        {
+          "sample_id": "B1",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B2",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B3",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B4",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B5",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B6",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "not_measured"
+        },
+        {
+          "sample_id": "B7",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B8",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B9",
+          "sample_class": "tumor_tissue",
+          "organ": "synthetic_organ_a",
+          "assay_status": "measured"
+        },
+        {
+          "sample_id": "B10",
+          "sample_class": "healthy_tissue",
+          "organ": "synthetic_organ_b",
+          "assay_status": "measured"
+        }
+      ],
+      "sample_hla_typing": [
+        {
+          "sample_id": "B1",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B2",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B3",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B4",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B5",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B6",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B7",
+          "allele_name": "HLA-A*24:02"
+        },
+        {
+          "sample_id": "B8",
+          "allele_name": "HLA-A*24:02"
+        },
+        {
+          "sample_id": "B9",
+          "allele_name": "HLA-A*02:01"
+        },
+        {
+          "sample_id": "B10",
+          "allele_name": "HLA-A*02:01"
+        }
+      ],
+      "sample_hla_typing_status": [
+        {
+          "sample_id": "B1",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "B2",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "B3",
+          "locus": "HLA-A",
+          "status": "incomplete"
+        },
+        {
+          "sample_id": "B4",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "B5",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "B6",
+          "locus": "HLA-A",
+          "status": "incomplete"
+        },
+        {
+          "sample_id": "B7",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "B8",
+          "locus": "HLA-A",
+          "status": "incomplete"
+        },
+        {
+          "sample_id": "B9",
+          "locus": "HLA-A",
+          "status": "complete"
+        },
+        {
+          "sample_id": "B10",
+          "locus": "HLA-A",
+          "status": "complete"
+        }
+      ],
+      "sample_peptide_detections": [
+        {
+          "sample_id": "B1",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "B3",
+          "sequence": "KLMNPQRST"
+        },
+        {
+          "sample_id": "B4",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "B5",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "B7",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "B8",
+          "sequence": "KLMNPQRST"
+        },
+        {
+          "sample_id": "B9",
+          "sequence": "ACDEFGHIK"
+        },
+        {
+          "sample_id": "B10",
+          "sequence": "ACDEFGHIK"
+        }
+      ]
+    }
+  },
+  "site_labels": {
+    "site_a": "synthetic_site_a",
+    "site_b": "synthetic_site_b"
+  }
+}

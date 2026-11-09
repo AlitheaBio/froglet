@@ -10,6 +10,10 @@ Lightning rail and MCP registry distribution.
 
 ## [Unreleased]
 
+### Added
+
+- Synthetic immunopeptidomics reference: two provider-local SQLite datasets, NVIDIA FLARE task components, a bounded Wasm count workload, explicit denominators/missingness, signed evidence and incomplete-result rejection.
+
 ## [0.4.7-beta.1] - Prepared 2026-10-03
 
 This section records the beta candidate at preparation, before immutable
