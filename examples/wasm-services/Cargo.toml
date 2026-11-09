@@ -1,7 +1,7 @@
 # Sample froglet.wasm.run_json.v1 services. A standalone workspace with a release profile tuned for small WebAssembly
 # modules; the site build compiles it (see docs-site/scripts/build-playground.mjs), and the playground publishes them.
 [workspace]
-members = ["adder", "fibonacci", "ontology-check"]
+members = ["adder", "fibonacci", "ontology-check", "immunopeptidomics"]
 resolver = "2"
 
 [profile.release]

@@ -1,0 +1,14 @@
+[package]
+name = "immunopeptidomics"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license = "Apache-2.0"
+description = "Synthetic provider-local peptide detection counts through the Froglet host JSON ABI"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.149"

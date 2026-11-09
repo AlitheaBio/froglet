@@ -1,5 +1,16 @@
 # Examples
 
+## Synthetic immunopeptidomics with NVIDIA FLARE
+
+[immunopeptidomics_demo.py](immunopeptidomics_demo.py) sends an exact peptide/HLA
+cohort query through installed FLARE components to two local Froglet providers.
+A small Wasm module reads separate local SQLite fixtures and returns counts with
+explicit measured denominators and missingness. Signed evidence, retries and
+refusal of incomplete aggregates are checked. All data is synthetic.
+
+See [the reproducible reference](../docs/IMMUNOPEPTIDOMICS_REFERENCE.md) for the
+pinned environment, build/run commands, scientific boundaries and failure test.
+
 ## Local Three-Role Stack
 
 ```bash

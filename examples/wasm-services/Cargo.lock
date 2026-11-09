@@ -11,6 +11,14 @@ name = "fibonacci"
 version = "0.1.0"
 
 [[package]]
+name = "immunopeptidomics"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "itoa"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"

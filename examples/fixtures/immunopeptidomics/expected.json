@@ -1,0 +1,129 @@
+{
+  "sites": {
+    "site_a": {
+      "cohort_total": 8,
+      "hla_unknown": 2,
+      "hla_nonmatching": 1,
+      "eligible": 5,
+      "measured": 3,
+      "detected": 2,
+      "not_detected": 1,
+      "not_measured": 1,
+      "failed": 1,
+      "missing": 2
+    },
+    "site_b": {
+      "cohort_total": 8,
+      "hla_unknown": 1,
+      "hla_nonmatching": 1,
+      "eligible": 6,
+      "measured": 5,
+      "detected": 3,
+      "not_detected": 2,
+      "not_measured": 1,
+      "failed": 0,
+      "missing": 1
+    }
+  },
+  "aggregate": {
+    "cohort_total": 16,
+    "hla_unknown": 3,
+    "hla_nonmatching": 2,
+    "eligible": 11,
+    "measured": 8,
+    "detected": 5,
+    "not_detected": 3,
+    "not_measured": 2,
+    "failed": 1,
+    "missing": 3
+  },
+  "detection_fraction": {
+    "numerator": 5,
+    "denominator": 8,
+    "value": 0.625
+  },
+  "missing_fraction": {
+    "numerator": 3,
+    "denominator": 11
+  },
+  "expected_member_ids_for_development_only": {
+    "site_a": {
+      "eligible": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "measured": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "detected": [
+        "A1",
+        "A3"
+      ],
+      "not_detected": [
+        "A2"
+      ],
+      "not_measured": [
+        "A4"
+      ],
+      "failed": [
+        "A5"
+      ],
+      "hla_nonmatching": [
+        "A6"
+      ],
+      "hla_unknown": [
+        "A7",
+        "A8"
+      ],
+      "outside_cohort": [
+        "A9",
+        "A10"
+      ]
+    },
+    "site_b": {
+      "eligible": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "measured": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "detected": [
+        "B1",
+        "B4",
+        "B5"
+      ],
+      "not_detected": [
+        "B2",
+        "B3"
+      ],
+      "not_measured": [
+        "B6"
+      ],
+      "failed": [],
+      "hla_nonmatching": [
+        "B7"
+      ],
+      "hla_unknown": [
+        "B8"
+      ],
+      "outside_cohort": [
+        "B9",
+        "B10"
+      ]
+    }
+  }
+}

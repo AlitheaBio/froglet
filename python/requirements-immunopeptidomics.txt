@@ -1,0 +1,5 @@
+# Reference environment tested with Python 3.11; install in a dedicated venv.
+-r requirements.txt
+nvflare==2.9.0
+numpy==2.3.5
+cryptography==46.0.7

@@ -128,6 +128,7 @@ if command -v node >/dev/null 2>&1; then
     node --check integrations/openclaw/froglet/scripts/doctor.mjs
     node --test integrations/openclaw/froglet/test/plugin.test.js \
       integrations/openclaw/froglet/test/*.test.mjs
+    python3 -W error integrations/openclaw/froglet/test/openshell-qualification-backend.test.py -v
 
     echo "[strict] MCP server checks"
     node --check integrations/mcp/froglet/server.js
@@ -163,7 +164,7 @@ if rustup target list --installed 2>/dev/null | grep -q wasm32-unknown-unknown; 
   echo "[strict] ontology checker and independent oracle unit checks"
   CARGO_INCREMENTAL=0 RUSTFLAGS="$strict_rustflags" \
     cargo test --locked --manifest-path examples/wasm-services/Cargo.toml -p ontology-check
-  python3 -W error -m unittest examples.test_a2a_compute_demo examples.test_research_profile examples.test_go_subset_catalog examples.test_qualify_ontology_capacity examples.test_generated_program_replay -v
+  python3 -W error -m unittest examples.test_a2a_compute_demo examples.test_immunopeptidomics_demo examples.test_research_profile examples.test_go_subset_catalog examples.test_qualify_ontology_capacity examples.test_generated_program_replay -v
 
   if [[ -z "$qualification_node" && "${FROGLET_REQUIRE_SOFTWARE_CHECKS:-0}" == 1 ]]; then
     # Standalone release CI has no package gate to supply its candidate.

@@ -45,6 +45,7 @@ Public launch entry points:
 
 ## Companion Docs
 
+- [IMMUNOPEPTIDOMICS_REFERENCE.md](IMMUNOPEPTIDOMICS_REFERENCE.md): synthetic peptide detection counts through FLARE components and signed Froglet computations
 - [ADAPTERS.md](ADAPTERS.md): transport and execution adapter boundaries
 - [API_ERRORS.md](API_ERRORS.md): API error reference — status codes and error shapes
 - [CONFIDENTIAL.md](CONFIDENTIAL.md): TEE and encrypted execution extension
@@ -73,4 +74,5 @@ Public launch entry points:
 - [MCP_DIRECTORY_SUBMISSIONS.md](MCP_DIRECTORY_SUBMISSIONS.md): MCP directory submission tracking
 - [OPENCLAW.md](OPENCLAW.md): OpenClaw (Claude) integration
 - [NEMOCLAW.md](NEMOCLAW.md): NemoClaw (local agent) integration
+- [OPENSHELL_QUALIFICATION.md](OPENSHELL_QUALIFICATION.md): reproducible allow/deny check for the Froglet plugin in standalone OpenShell
 - [ROLE_TOOL_ARCHITECTURE.md](ROLE_TOOL_ARCHITECTURE.md): role and tool architecture
