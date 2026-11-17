@@ -29,6 +29,7 @@ pub const PAYMENT_METHOD_FREE: &str = "free";
 pub const PAYMENT_METHOD_LIGHTNING: &str = "lightning";
 pub const PAYMENT_METHOD_X402_USDC: &str = "x402_usdc";
 pub const PAYMENT_METHOD_STRIPE_MPP: &str = "stripe_mpp";
+pub const PAYMENT_METHOD_OPERATOR_LEDGER: &str = "operator_ledger";
 
 // Settlement method identifiers: the values carried in
 // offer.settlement_method, quote.settlement_terms.method, and
@@ -39,6 +40,7 @@ pub const SETTLEMENT_METHOD_LIGHTNING_ESCROW: &str = "lightning.base_fee_plus_su
 pub const SETTLEMENT_METHOD_STRIPE_MPP: &str = "stripe_mpp.v1";
 pub const SETTLEMENT_METHOD_LIGHTNING_PREPAID: &str = "lightning.prepaid.v1";
 pub const SETTLEMENT_METHOD_X402_EIP3009: &str = "x402.eip3009.v1";
+pub const SETTLEMENT_METHOD_OPERATOR_LEDGER: &str = "operator_ledger.v1";
 
 pub const LINKED_IDENTITY_KIND_NOSTR: &str = "nostr";
 pub const LINKED_IDENTITY_SCOPE_PUBLICATION_NOSTR: &str = "publication.nostr";
@@ -554,6 +556,43 @@ pub(crate) fn is_lower_hex_len(value: &str, len: usize) -> bool {
             .all(|byte| byte.is_ascii_hexdigit() && !byte.is_ascii_uppercase())
 }
 
+pub(crate) fn is_valid_operator_ledger_identity(value: &str) -> bool {
+    (1..=128).contains(&value.len())
+        && value.bytes().all(|byte| {
+            byte.is_ascii_alphanumeric() || matches!(byte, b'.' | b'_' | b'-' | b':' | b'/')
+        })
+}
+
+fn validate_operator_ledger_leg(name: &str, leg: &ReceiptSettlementLeg) -> Result<(), String> {
+    if matches!(
+        leg.state,
+        ReceiptLegState::Open | ReceiptLegState::Accepted
+    ) {
+        return Err(format!(
+            "operator_ledger.v1 receipt {name}.state must be terminal"
+        ));
+    }
+    if leg.amount_msat == 0 {
+        if !receipt_leg_is_empty_canceled(leg) {
+            return Err(format!(
+                "operator_ledger.v1 receipt zero-valued {name} must be a canceled empty placeholder"
+            ));
+        }
+        return Ok(());
+    }
+    if !is_lower_hex_len(&leg.payment_hash, 64) {
+        return Err(format!(
+            "operator_ledger.v1 receipt non-zero {name}.payment_hash must be 32-byte lowercase hex"
+        ));
+    }
+    if !leg.invoice_hash.is_empty() && !is_lower_hex_len(&leg.invoice_hash, 64) {
+        return Err(format!(
+            "operator_ledger.v1 receipt {name}.invoice_hash must be empty or 32-byte lowercase hex"
+        ));
+    }
+    Ok(())
+}
+
 pub fn validate_receipt_artifact(receipt: &SignedArtifact<ReceiptPayload>) -> Result<(), String> {
     let payload = &receipt.payload;
 
@@ -949,6 +988,100 @@ pub fn validate_receipt_artifact(receipt: &SignedArtifact<ReceiptPayload>) -> Re
                 );
             }
         }
+        // Interop note: operator_ledger.v1 is a closed-loop operator-ledger
+        // method (for example Alithea ACT minor units) without Lightning hold
+        // invoices (`bundle_hash` is absent). `destination_identity` names the
+        // closed-loop ledger (e.g. `alithea.act.v1`), `Deal.success_payment_hash`
+        // commits to `sha256(reservation_id)` created before execution, and
+        // `Receipt.settlement_refs` records terminal two-leg reservation
+        // outcomes (`settled`, `canceled`, or `expired`).
+        "operator_ledger.v1" => {
+            if payload.settlement_refs.bundle_hash.is_some() {
+                return Err("operator_ledger.v1 receipt must not include bundle_hash".to_string());
+            }
+            if !is_valid_operator_ledger_identity(&payload.settlement_refs.destination_identity) {
+                return Err(
+                    "operator_ledger.v1 receipt destination_identity must be a 1..=128 byte ASCII ledger identifier"
+                        .to_string(),
+                );
+            }
+            let base_fee = &payload.settlement_refs.base_fee;
+            let success_fee = &payload.settlement_refs.success_fee;
+            if base_fee.amount_msat == 0 && success_fee.amount_msat == 0 {
+                return Err(
+                    "operator_ledger.v1 receipt must carry a non-zero base_fee or success_fee"
+                        .to_string(),
+                );
+            }
+            validate_operator_ledger_leg("base_fee", base_fee)?;
+            validate_operator_ledger_leg("success_fee", success_fee)?;
+            match payload.settlement_state.as_str() {
+                "settled" => {
+                    if base_fee.amount_msat > 0 && base_fee.state != ReceiptLegState::Settled {
+                        return Err(
+                            "operator_ledger.v1 receipt settlement_state settled requires non-zero base_fee.state settled"
+                                .to_string(),
+                        );
+                    }
+                    if success_fee.amount_msat > 0 {
+                        if success_fee.state != ReceiptLegState::Settled {
+                            return Err(
+                                "operator_ledger.v1 receipt settlement_state settled requires non-zero success_fee.state settled"
+                                    .to_string(),
+                            );
+                        }
+                        if payload.deal_state != "succeeded" {
+                            return Err(
+                                "operator_ledger.v1 receipt with settled success_fee requires deal_state succeeded"
+                                    .to_string(),
+                            );
+                        }
+                    }
+                }
+                "canceled" => {
+                    if success_fee.amount_msat > 0 {
+                        if success_fee.state != ReceiptLegState::Canceled {
+                            return Err(
+                                "operator_ledger.v1 receipt settlement_state canceled requires success_fee.state canceled"
+                                    .to_string(),
+                            );
+                        }
+                    } else if base_fee.state != ReceiptLegState::Canceled {
+                        return Err(
+                            "operator_ledger.v1 receipt settlement_state canceled requires base_fee.state canceled"
+                                .to_string(),
+                        );
+                    }
+                }
+                "expired" => {
+                    if success_fee.amount_msat > 0 {
+                        if success_fee.state != ReceiptLegState::Expired {
+                            return Err(
+                                "operator_ledger.v1 receipt settlement_state expired requires success_fee.state expired"
+                                    .to_string(),
+                            );
+                        }
+                    } else if base_fee.state != ReceiptLegState::Expired {
+                        return Err(
+                            "operator_ledger.v1 receipt settlement_state expired requires base_fee.state expired"
+                                .to_string(),
+                        );
+                    }
+                }
+                _ => {
+                    return Err(
+                        "operator_ledger.v1 receipt settlement_state must be settled, canceled, or expired"
+                            .to_string(),
+                    );
+                }
+            }
+            if payload.deal_state == "succeeded" && payload.settlement_state != "settled" {
+                return Err(
+                    "successful operator_ledger.v1 receipt must have settlement_state settled"
+                        .to_string(),
+                );
+            }
+        }
         _ => return Err("receipt settlement_refs.method is invalid".to_string()),
     }
 
@@ -1015,12 +1148,15 @@ pub fn validate_offer_artifact(offer: &SignedArtifact<OfferPayload>) -> Result<(
             | SETTLEMENT_METHOD_STRIPE_MPP
             | SETTLEMENT_METHOD_LIGHTNING_PREPAID
             | SETTLEMENT_METHOD_X402_EIP3009
+            | SETTLEMENT_METHOD_OPERATOR_LEDGER
     ) {
         return Err("paid offer settlement_method is unsupported".to_string());
     }
 
-    if offer.payload.settlement_method != SETTLEMENT_METHOD_LIGHTNING_ESCROW
-        && price.success_fee_msat != 0
+    if !matches!(
+        offer.payload.settlement_method.as_str(),
+        SETTLEMENT_METHOD_LIGHTNING_ESCROW | SETTLEMENT_METHOD_OPERATOR_LEDGER
+    ) && price.success_fee_msat != 0
     {
         return Err("single-leg paid offer success_fee_msat must be zero".to_string());
     }
@@ -1206,6 +1342,20 @@ pub fn validate_quote_settlement_terms(terms: &QuoteSettlementTerms) -> Result<(
             }
             if terms.success_fee_msat != 0 {
                 return Err("x402 quote success_fee_msat must be zero".to_string());
+            }
+        }
+        SETTLEMENT_METHOD_OPERATOR_LEDGER => {
+            if !is_valid_operator_ledger_identity(&terms.destination_identity) {
+                return Err(
+                    "operator_ledger.v1 quote destination_identity must be a 1..=128 byte ASCII ledger identifier"
+                        .to_string(),
+                );
+            }
+            if terms.base_fee_msat == 0 && terms.success_fee_msat == 0 {
+                return Err(
+                    "operator_ledger.v1 quote must declare a non-zero base_fee_msat or success_fee_msat"
+                        .to_string(),
+                );
             }
         }
         _ => return Err("quote settlement_terms.method is invalid".to_string()),
@@ -2798,6 +2948,152 @@ mod tests {
         assert_eq!(
             validate_receipt_artifact(&receipt).unwrap_err(),
             "successful lightning.prepaid.v1 receipt must have settlement_state settled"
+        );
+    }
+
+    fn sign_operator_ledger(mut payload: ReceiptPayload) -> SignedArtifact<ReceiptPayload> {
+        let signing_key = crypto::generate_signing_key();
+        let signer = crypto::public_key_hex(&signing_key);
+        payload.provider_id = signer.clone();
+        sign_artifact(
+            &signer,
+            |message| crypto::sign_message_hex(&signing_key, message),
+            ARTIFACT_TYPE_RECEIPT,
+            100,
+            payload,
+        )
+        .unwrap()
+    }
+
+    fn valid_operator_ledger_receipt_payload(
+        deal_state: &str,
+        execution_state: &str,
+        settlement_state: &str,
+        success_state: ReceiptLegState,
+    ) -> ReceiptPayload {
+        let succeeded = execution_state == "succeeded";
+        ReceiptPayload {
+            provider_id: "placeholder".to_string(),
+            requester_id: "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27"
+                .to_string(),
+            deal_hash: "aa".repeat(32),
+            quote_hash: "bb".repeat(32),
+            extension_refs: Vec::new(),
+            acceptance_ref: None,
+            started_at: Some(90),
+            finished_at: 100,
+            deal_state: deal_state.to_string(),
+            execution_state: execution_state.to_string(),
+            settlement_state: settlement_state.to_string(),
+            result_hash: succeeded.then(|| "cc".repeat(32)),
+            confidential_session_hash: None,
+            result_envelope_hash: None,
+            result_format: succeeded.then(|| "application/json".to_string()),
+            executor: ReceiptExecutor {
+                runtime: "container".to_string(),
+                runtime_version: "podman-5".to_string(),
+                execution_mode: None,
+                attestation_platform: None,
+                measurement: None,
+                abi_version: Some("biocompass.oci.v1".to_string()),
+                module_hash: Some("dd".repeat(32)),
+                capabilities_granted: Vec::new(),
+            },
+            limits_applied: ExecutionLimits {
+                max_input_bytes: 1_048_576,
+                max_runtime_ms: 60_000,
+                max_memory_bytes: 536_870_912,
+                max_output_bytes: 10_485_760,
+                fuel_limit: 0,
+            },
+            settlement_refs: ReceiptSettlementRefs {
+                method: SETTLEMENT_METHOD_OPERATOR_LEDGER.to_string(),
+                bundle_hash: None,
+                destination_identity: "alithea.act.v1".to_string(),
+                base_fee: ReceiptSettlementLeg {
+                    amount_msat: 0,
+                    invoice_hash: String::new(),
+                    payment_hash: String::new(),
+                    state: ReceiptLegState::Canceled,
+                },
+                success_fee: ReceiptSettlementLeg {
+                    amount_msat: 5_000,
+                    invoice_hash: String::new(),
+                    payment_hash: "ee".repeat(32),
+                    state: success_state,
+                },
+            },
+            failure_code: (!succeeded).then(|| "runtime_limit_exceeded".to_string()),
+            failure_message: (!succeeded).then(|| "container exceeded max_runtime_ms".to_string()),
+            result_ref: None,
+        }
+    }
+
+    #[test]
+    fn operator_ledger_v1_settled_canceled_and_expired_receipts_validate() {
+        let settled = sign_operator_ledger(valid_operator_ledger_receipt_payload(
+            "succeeded",
+            "succeeded",
+            "settled",
+            ReceiptLegState::Settled,
+        ));
+        assert!(verify_artifact(&settled));
+        assert!(validate_receipt_artifact(&settled).is_ok());
+
+        let canceled = sign_operator_ledger(valid_operator_ledger_receipt_payload(
+            "failed",
+            "failed",
+            "canceled",
+            ReceiptLegState::Canceled,
+        ));
+        assert!(verify_artifact(&canceled));
+        assert!(validate_receipt_artifact(&canceled).is_ok());
+
+        let expired = sign_operator_ledger(valid_operator_ledger_receipt_payload(
+            "failed",
+            "failed",
+            "expired",
+            ReceiptLegState::Expired,
+        ));
+        assert!(verify_artifact(&expired));
+        assert!(validate_receipt_artifact(&expired).is_ok());
+    }
+
+    #[test]
+    fn operator_ledger_v1_rejects_bundle_hash_bad_destination_and_open_legs() {
+        let mut with_bundle = valid_operator_ledger_receipt_payload(
+            "succeeded",
+            "succeeded",
+            "settled",
+            ReceiptLegState::Settled,
+        );
+        with_bundle.settlement_refs.bundle_hash = Some("ff".repeat(32));
+        assert_eq!(
+            validate_receipt_artifact(&sign_operator_ledger(with_bundle)).unwrap_err(),
+            "operator_ledger.v1 receipt must not include bundle_hash"
+        );
+
+        let mut bad_dest = valid_operator_ledger_receipt_payload(
+            "succeeded",
+            "succeeded",
+            "settled",
+            ReceiptLegState::Settled,
+        );
+        bad_dest.settlement_refs.destination_identity = "invalid space".to_string();
+        assert_eq!(
+            validate_receipt_artifact(&sign_operator_ledger(bad_dest)).unwrap_err(),
+            "operator_ledger.v1 receipt destination_identity must be a 1..=128 byte ASCII ledger identifier"
+        );
+
+        let open_leg = valid_operator_ledger_receipt_payload(
+            "succeeded",
+            "succeeded",
+            "settled",
+            ReceiptLegState::Open,
+        );
+        assert_eq!(
+            validate_receipt_artifact(&sign_operator_ledger(open_leg)).unwrap_err(),
+            "operator_ledger.v1 receipt success_fee.state must be terminal"
         );
     }
 }

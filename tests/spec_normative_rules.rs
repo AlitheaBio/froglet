@@ -320,7 +320,11 @@ fn an_unrecognized_settlement_method_is_rejected_outright() {
 // covers: SPEC-CNF-1, SPEC-CNF-2
 #[test]
 fn conformance_is_defined_by_the_vector_files_present_in_the_repo() {
-    for (file, expected_cases) in [("kernel_v1.json", 14usize), ("x402_v1.json", 6usize)] {
+    for (file, expected_cases) in [
+        ("kernel_v1.json", 14usize),
+        ("x402_v1.json", 6usize),
+        ("operator_ledger_v1.json", 7usize),
+    ] {
         let fixture = load(file);
         let cases = fixture["artifact_verification_cases"]
             .as_array()

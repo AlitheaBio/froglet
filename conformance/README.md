@@ -14,6 +14,7 @@ review can focus on the irreversible wire values themselves.
 |---|---|---|
 | `kernel_v1.json` | Paid chain (Descriptor → Offer → Quote → Deal → InvoiceBundle → Receipt), free chain, 14 artifact accept/reject cases, 5 invoice-bundle validation cases, linked-identity challenge | **Frozen forever.** Never regenerated; a change here would break the "signed `froglet/v1` artifacts verify forever" guarantee. |
 | `x402_v1.json` | `x402.eip3009.v1` chain (no invoice bundle), 6 artifact accept/reject cases, evidence-bundle hash commitment | Additive. Regenerate with the ignored generator test when the method's rules change. |
+| `operator_ledger_v1.json` | `operator_ledger.v1` chain (no invoice bundle), 7 artifact accept/reject cases, `SHA256(reservation_id)` binding | Additive. Regenerate with the ignored generator test when the method's rules change. |
 
 ## Fixture shape
 

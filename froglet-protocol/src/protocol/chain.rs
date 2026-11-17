@@ -5,10 +5,10 @@ use super::kernel::{
     ARTIFACT_TYPE_RECEIPT, DealPayload, DescriptorPayload, ExecutionLimits, InvoiceBundleLeg,
     InvoiceBundlePayload, OfferPayload, QuotePayload, ReceiptLegState, ReceiptPayload,
     SETTLEMENT_METHOD_LIGHTNING_ESCROW, SETTLEMENT_METHOD_LIGHTNING_PREPAID,
-    SETTLEMENT_METHOD_NONE, SETTLEMENT_METHOD_STRIPE_MPP, SETTLEMENT_METHOD_X402_EIP3009,
-    SignedArtifact, TRANSPORT_TYPE_INVOICE_BUNDLE, validate_deal_artifact,
-    validate_descriptor_artifact, validate_invoice_bundle_artifact, validate_offer_artifact,
-    validate_quote_artifact, validate_receipt_artifact, verify_artifact,
+    SETTLEMENT_METHOD_NONE, SETTLEMENT_METHOD_OPERATOR_LEDGER, SETTLEMENT_METHOD_STRIPE_MPP,
+    SETTLEMENT_METHOD_X402_EIP3009, SignedArtifact, TRANSPORT_TYPE_INVOICE_BUNDLE,
+    validate_deal_artifact, validate_descriptor_artifact, validate_invoice_bundle_artifact,
+    validate_offer_artifact, validate_quote_artifact, validate_receipt_artifact, verify_artifact,
 };
 use crate::crypto;
 
@@ -745,6 +745,17 @@ fn validate_receipt_links(
             "receipt destination_identity must match quote settlement terms",
         );
     }
+    if quote.payload.settlement_terms.method == SETTLEMENT_METHOD_OPERATOR_LEDGER
+        && quote.payload.settlement_terms.success_fee_msat > 0
+        && receipt.payload.settlement_refs.success_fee.payment_hash
+            != deal.payload.success_payment_hash
+    {
+        report.push_issue(
+            ISSUE_INVOICE_SUCCESS_PAYMENT_HASH_MISMATCH,
+            ARTIFACT_TYPE_RECEIPT,
+            "receipt success_fee.payment_hash must match deal success_payment_hash",
+        );
+    }
     if !limits_within_quote(&receipt.payload.limits_applied, quote) {
         report.push_issue(
             ISSUE_EXECUTION_LIMITS_EXCEED_OFFER,
@@ -844,6 +855,7 @@ fn is_known_paid_settlement_method(method: &str) -> bool {
             | SETTLEMENT_METHOD_STRIPE_MPP
             | SETTLEMENT_METHOD_LIGHTNING_PREPAID
             | SETTLEMENT_METHOD_X402_EIP3009
+            | SETTLEMENT_METHOD_OPERATOR_LEDGER
     )
 }
 

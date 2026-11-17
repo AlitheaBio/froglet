@@ -152,6 +152,7 @@ as cryptographically proven, in an API response, a report, or user-facing copy.
 | `lightning.prepaid.v1` | **Cryptographic**: `SHA256(preimage) == payment_hash`, both carried in the receipt | Anyone, offline | Strongest non-escrow evidence in the protocol |
 | `stripe_mpp.v1` | **Attested** only: receipt carries a PaymentIntent id | Stripe, or an account holder via Stripe's API | No offline-checkable proof of payment |
 | `x402.eip3009.v1` | **Split**: the payer's EIP-712 authorization is cryptographically verifiable offline; transaction inclusion is attested | Authorization: anyone offline. Inclusion: any chain view | See KERNEL.md §5.6 |
+| `operator_ledger.v1` | **Attested** by the provider's signed receipt over `SHA256(reservation_id)` bound in `Deal.success_payment_hash` | Closed-loop operator ledger and parties holding `reservation_id` | Two-leg reservation method without `invoice_bundle`; finality is an operator-ledger transition keyed to `receipt.hash` |
 
 **[SPEC-SET-2]** For `x402.eip3009.v1`, value equivalence between the quoted
 `base_fee_msat` and the transferred stablecoin units is a provider attestation.
@@ -179,6 +180,7 @@ case expects acceptance, and rejects every artifact whose case expects rejection
 |---|---|---|
 | `kernel_v1.json` | Full Lightning escrow paid chain, free chain, 14 accept/reject cases, 5 invoice-bundle cases, linked-identity challenge | **Frozen forever.** Never regenerated. |
 | `x402_v1.json` | `x402.eip3009.v1` chain, 6 accept/reject cases, evidence-bundle commitment | Additive |
+| `operator_ledger_v1.json` | `operator_ledger.v1` chain, 7 accept/reject cases, reservation hash commitment | Additive |
 
 Reference runners: `tests/kernel_conformance_vectors.rs` and
 `tests/x402_conformance_vectors.rs` (Rust), `python/tests/test_conformance_vectors.py`

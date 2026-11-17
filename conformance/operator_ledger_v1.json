@@ -1,0 +1,623 @@
+{
+  "artifact_verification_cases": [
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "014d2bdfa53d846d06d13b584379c7bd4926c7dcd0246b6ea8c595afb096efb8",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "succeeded",
+          "execution_state": "succeeded",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "result_format": "application/json",
+          "result_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "settled"
+            }
+          },
+          "settlement_state": "settled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "6f3970a9a6a7ecb236c8f7fb1a5d68a4100c84ebfd9a8bb6a8ac3e8711fb994a",
+        "schema_version": "froglet/v1",
+        "signature": "879d3260f4fe77485e3ed619f39cac0fb07f5f21bf2e40a3f292e38db5d888c9a7713901e4aa4c189792449b912bd73d75fbcf0b7036a7fa17ce86886cd771cb",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": true,
+      "name": "operator_ledger_receipt_valid"
+    },
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "198d127911623f48e6f991dcac2fdae8b6b5ff0be14477cfca8cacca268372ad",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "failed",
+          "execution_state": "failed",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "failure_code": "output_limit_exceeded",
+          "failure_message": "container exceeded max_output_bytes",
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "canceled"
+            }
+          },
+          "settlement_state": "canceled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "1417b0342c7c923188315c4dfdfa5043654638964bb25944c0f5255c6a452806",
+        "schema_version": "froglet/v1",
+        "signature": "78d9eb38bb0073f7c4a3097fba5edb48a00f9db134cea1cc2e12e251f23cacb64b2987199a114e2eab5272dd1f04f4748dafec5031f5632fbe1de8a73a40d65e",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": true,
+      "name": "operator_ledger_receipt_canceled_valid"
+    },
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "37794c89312fd13053726a7bb99429f42da136a5ff393b3e0ba8afa8387e9595",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "failed",
+          "execution_state": "failed",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "failure_code": "runtime_limit_exceeded",
+          "failure_message": "container exceeded max_runtime_ms",
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "expired"
+            }
+          },
+          "settlement_state": "expired",
+          "started_at": 1700000001
+        },
+        "payload_hash": "fc85dcbae21492e4bef3e0ccbcd4f3c27914d390ea55cc40e8ff7bc205b033ef",
+        "schema_version": "froglet/v1",
+        "signature": "59fd357d7b6198a58dd7a842b0bb290b86495639ace343be9695878b0d7fd902ee9cba269c19ff20ce5c69fdd89bcfe627587a7bc805ba7e1fb67e157ba78929",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": true,
+      "name": "operator_ledger_receipt_expired_valid"
+    },
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "fff6ff1043e53c8876262bc56867f3a1ab9381c65b9f96622799ce51e1fb16d0",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "succeeded",
+          "execution_state": "succeeded",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "result_format": "application/json",
+          "result_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "bundle_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "settled"
+            }
+          },
+          "settlement_state": "settled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "4963b31089802451d550bfb28fc1d54b211874584443420332a41d6cd56d8126",
+        "schema_version": "froglet/v1",
+        "signature": "7995694294da3df1f6be0c60f0e8f587dc132a2c231872127c3613dc6fc9315e7fa46645be9a0944c2b21b940df294447f20a0f69225d3dfc6ccd766a838b672",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": false,
+      "name": "operator_ledger_receipt_with_bundle_hash"
+    },
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "a812fa7d62fb4462ffc169ee80e1459346dd50995edce81a8abeaff171aba5ae",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "succeeded",
+          "execution_state": "succeeded",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "result_format": "application/json",
+          "result_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "invalid ledger space",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "settled"
+            }
+          },
+          "settlement_state": "settled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "d24660d01dbea087ed6b2dcbaece2e7e246ca407b299bcd5b6910cf428ce1ddb",
+        "schema_version": "froglet/v1",
+        "signature": "978ec580d0fbc378d5b9f7660fbe3d52538ff7cb7e7ee932e2688a145e639d6d230cd436a100304db9e8c65fac19e85b43cfa81c32528815d6d6698fa530027f",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": false,
+      "name": "operator_ledger_receipt_invalid_destination"
+    },
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "b4ea376e83383363c1087196f8d7abf721b0016436e48a0c7453684546b43f0b",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "succeeded",
+          "execution_state": "succeeded",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "result_format": "application/json",
+          "result_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "canceled"
+            }
+          },
+          "settlement_state": "canceled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "9f0c91f8ba428ec1d2743b6500d0fcff45e899ae27286c266aca31daabe11514",
+        "schema_version": "froglet/v1",
+        "signature": "dce42e8dc6daf9fa3cff7d808231a1b160f507ed3803a51175b4148dbb6a0c948c915105f32c5cd07514da51165fe1fe27b3885629be0ade267c90404c70db83",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": false,
+      "name": "operator_ledger_receipt_succeeded_but_canceled"
+    },
+    {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "9a05096aaa3774a8f5e7fe7404ef18d5ad92c2ecac1264a0f9af1e869f8dfbcd",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "succeeded",
+          "execution_state": "succeeded",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "result_format": "application/json",
+          "result_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "open"
+            }
+          },
+          "settlement_state": "settled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "fea7c7c42913606d95ed1f1b22828ec880e468d25065febee04a649cbb033a93",
+        "schema_version": "froglet/v1",
+        "signature": "c6d532c0844548cfe300b3686460b6273ca09191f791b68cacd0ec8c0df24ec8ef431069c37305c4508809172e12744195a26144d25d2830deafe9aabca805ce",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_type": "receipt",
+      "expected_valid": false,
+      "name": "operator_ledger_receipt_open_leg"
+    }
+  ],
+  "artifacts": {
+    "deal": {
+      "artifact": {
+        "artifact_type": "deal",
+        "created_at": 1700000000,
+        "hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+        "payload": {
+          "acceptance_deadline": 1700000240,
+          "admission_deadline": 1700000060,
+          "completion_deadline": 1700000180,
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "success_payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+          "workload_hash": "1111111111111111111111111111111111111111111111111111111111111111"
+        },
+        "payload_hash": "3e5228cceb8c8210159fc0da90ca19179a6cbeb5561fcfd3c73f20c30bfef944",
+        "schema_version": "froglet/v1",
+        "signature": "c3a47219c75d07ae8e7faf1da1b619afd041da6ca79b7730b6fe37235e5bc6bab873922a63939f67167492ec5ad6813c8310814848989cd64683a04fb5b8ebc0",
+        "signer": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27"
+      },
+      "artifact_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+      "canonical_signing_bytes_hex": "5b2266726f676c65742f7631222c226465616c222c2234363664376663616535363365356362303961306431383730626235383033343438303436313738373961313439343963663232323835663162616533663237222c313730303030303030302c2233653532323863636562386338323130313539666330646139306361313931373961366362656235353631666366643363373366323063333062666566393434222c7b22616363657074616e63655f646561646c696e65223a313730303030303234302c2261646d697373696f6e5f646561646c696e65223a313730303030303036302c22636f6d706c6574696f6e5f646561646c696e65223a313730303030303138302c2270726f76696465725f6964223a2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c2271756f74655f68617368223a2262633639636131616664383632356538353865313232626236326566323537386436356532386666366131306331386639343066343037366335666431373233222c227265717565737465725f6964223a2234363664376663616535363365356362303961306431383730626235383033343438303436313738373961313439343963663232323835663162616533663237222c22737563636573735f7061796d656e745f68617368223a2231653536623632303663333737663765353061623266616465636364383637373239376534346564323132313665613734323730393435373738636565343466222c22776f726b6c6f61645f68617368223a2231313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131227d5d",
+      "payload_hash": "3e5228cceb8c8210159fc0da90ca19179a6cbeb5561fcfd3c73f20c30bfef944"
+    },
+    "descriptor": {
+      "artifact": {
+        "artifact_type": "descriptor",
+        "created_at": 1700000000,
+        "hash": "12c39349d801916c492352a50cdcdeba2e3ae8baf150a153d47df644679459ff",
+        "payload": {
+          "accepted_payment_methods": [
+            "operator_ledger"
+          ],
+          "capabilities": {
+            "execution_runtimes": [
+              "container"
+            ],
+            "max_concurrent_deals": 4,
+            "service_kinds": [
+              "biocompass.oci.v1"
+            ]
+          },
+          "descriptor_seq": 1,
+          "protocol_version": "froglet/v1",
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "transport_endpoints": [
+            {
+              "created_at": 1700000000,
+              "features": [
+                "quote_ws",
+                "confirm_ws",
+                "receipt_push"
+              ],
+              "priority": 10,
+              "transport": "wss",
+              "uri": "wss://hub.biocompass.example/api/v1/nodes/ws"
+            }
+          ]
+        },
+        "payload_hash": "5fed5445fcd4872646e5ea9bf1ad335e29fb9d8c377879824e4d1daa6af6f602",
+        "schema_version": "froglet/v1",
+        "signature": "9c99373386c3bb04ccfecc8333e3a7c245647ba845be94681e05f41de8db8aad3b33241ee0a7c85b72282b4175d425b31c0fa2dc83ad32225d711869bdb70b8b",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_hash": "12c39349d801916c492352a50cdcdeba2e3ae8baf150a153d47df644679459ff",
+      "canonical_signing_bytes_hex": "5b2266726f676c65742f7631222c2264657363726970746f72222c2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c313730303030303030302c2235666564353434356663643438373236343665356561396266316164333335653239666239643863333737383739383234653464316461613661663666363032222c7b2261636365707465645f7061796d656e745f6d6574686f6473223a5b226f70657261746f725f6c6564676572225d2c226361706162696c6974696573223a7b22657865637574696f6e5f72756e74696d6573223a5b22636f6e7461696e6572225d2c226d61785f636f6e63757272656e745f6465616c73223a342c22736572766963655f6b696e6473223a5b2262696f636f6d706173732e6f63692e7631225d7d2c2264657363726970746f725f736571223a312c2270726f746f636f6c5f76657273696f6e223a2266726f676c65742f7631222c2270726f76696465725f6964223a2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c227472616e73706f72745f656e64706f696e7473223a5b7b22637265617465645f6174223a313730303030303030302c226665617475726573223a5b2271756f74655f7773222c22636f6e6669726d5f7773222c22726563656970745f70757368225d2c227072696f72697479223a31302c227472616e73706f7274223a22777373222c22757269223a227773733a2f2f6875622e62696f636f6d706173732e6578616d706c652f6170692f76312f6e6f6465732f7773227d5d7d5d",
+      "payload_hash": "5fed5445fcd4872646e5ea9bf1ad335e29fb9d8c377879824e4d1daa6af6f602"
+    },
+    "offer": {
+      "artifact": {
+        "artifact_type": "offer",
+        "created_at": 1700000000,
+        "hash": "ce6318b95029dfe7e6715ed583c06d57ef8917dcd26be3e4c62417a2a55a6004",
+        "payload": {
+          "descriptor_hash": "12c39349d801916c492352a50cdcdeba2e3ae8baf150a153d47df644679459ff",
+          "execution_profile": {
+            "abi_version": "biocompass.oci.v1",
+            "contract_version": "biocompass.oci.v1",
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000,
+            "package_kind": "oci_image",
+            "runtime": "container"
+          },
+          "offer_id": "standard",
+          "offer_kind": "biocompass.oci.v1",
+          "price_schedule": {
+            "base_fee_msat": 0,
+            "success_fee_msat": 5000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_ttl_secs": 300,
+          "settlement_method": "operator_ledger.v1"
+        },
+        "payload_hash": "c94d7402c60427bbfdb7e5af8f45830a793d3703d800aeb29a004c685aa3aecc",
+        "schema_version": "froglet/v1",
+        "signature": "dabdb360493fb24840fd81e85a0b4ee273f9f1752b379ccac2feca2563ed19a51e3d092332d748333ab3ce769cf8eb1287416e00877c43367ae8e0822c9e2eb1",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_hash": "ce6318b95029dfe7e6715ed583c06d57ef8917dcd26be3e4c62417a2a55a6004",
+      "canonical_signing_bytes_hex": "5b2266726f676c65742f7631222c226f66666572222c2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c313730303030303030302c2263393464373430326336303432376262666462376535616638663435383330613739336433373033643830306165623239613030346336383561613361656363222c7b2264657363726970746f725f68617368223a2231326333393334396438303139313663343932333532613530636463646562613265336165386261663135306131353364343764663634343637393435396666222c22657865637574696f6e5f70726f66696c65223a7b226162695f76657273696f6e223a2262696f636f6d706173732e6f63692e7631222c22636f6e74726163745f76657273696f6e223a2262696f636f6d706173732e6f63692e7631222c226675656c5f6c696d6974223a302c226d61785f696e7075745f6279746573223a313034383537362c226d61785f6d656d6f72795f6279746573223a313037333734313832342c226d61785f6f75747075745f6279746573223a31303438353736302c226d61785f72756e74696d655f6d73223a3132303030302c227061636b6167655f6b696e64223a226f63695f696d616765222c2272756e74696d65223a22636f6e7461696e6572227d2c226f666665725f6964223a227374616e64617264222c226f666665725f6b696e64223a2262696f636f6d706173732e6f63692e7631222c2270726963655f7363686564756c65223a7b22626173655f6665655f6d736174223a302c22737563636573735f6665655f6d736174223a353030307d2c2270726f76696465725f6964223a2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c2271756f74655f74746c5f73656373223a3330302c22736574746c656d656e745f6d6574686f64223a226f70657261746f725f6c65646765722e7631227d5d",
+      "payload_hash": "c94d7402c60427bbfdb7e5af8f45830a793d3703d800aeb29a004c685aa3aecc"
+    },
+    "quote": {
+      "artifact": {
+        "artifact_type": "quote",
+        "created_at": 1700000000,
+        "hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+        "payload": {
+          "descriptor_hash": "12c39349d801916c492352a50cdcdeba2e3ae8baf150a153d47df644679459ff",
+          "execution_limits": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "expires_at": 1700000300,
+          "offer_hash": "ce6318b95029dfe7e6715ed583c06d57ef8917dcd26be3e4c62417a2a55a6004",
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "settlement_terms": {
+            "base_fee_msat": 0,
+            "destination_identity": "alithea.act.v1",
+            "max_base_invoice_expiry_secs": 0,
+            "max_success_hold_expiry_secs": 0,
+            "method": "operator_ledger.v1",
+            "min_final_cltv_expiry": 0,
+            "success_fee_msat": 5000
+          },
+          "workload_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "workload_kind": "biocompass.oci.v1"
+        },
+        "payload_hash": "7a65de6dd58a1e6e6ab74f721d614fee0123ce7dad35cc6e7a6349d1c2173bea",
+        "schema_version": "froglet/v1",
+        "signature": "bcfa5fdd734d218299e168382d29bbed6ab3f4a7427e78f205c08c54eb1fae3828a2eda680aad10f3c94d63177e23ab9d3a8806045cfa576ea8a9861f514c5f4",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+      "canonical_signing_bytes_hex": "5b2266726f676c65742f7631222c2271756f7465222c2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c313730303030303030302c2237613635646536646435386131653665366162373466373231643631346665653031323363653764616433356363366537613633343964316332313733626561222c7b2264657363726970746f725f68617368223a2231326333393334396438303139313663343932333532613530636463646562613265336165386261663135306131353364343764663634343637393435396666222c22657865637574696f6e5f6c696d697473223a7b226675656c5f6c696d6974223a302c226d61785f696e7075745f6279746573223a313034383537362c226d61785f6d656d6f72795f6279746573223a313037333734313832342c226d61785f6f75747075745f6279746573223a31303438353736302c226d61785f72756e74696d655f6d73223a3132303030307d2c22657870697265735f6174223a313730303030303330302c226f666665725f68617368223a2263653633313862393530323964666537653637313565643538336330366435376566383931376463643236626533653463363234313761326135356136303034222c2270726f76696465725f6964223a2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c227265717565737465725f6964223a2234363664376663616535363365356362303961306431383730626235383033343438303436313738373961313439343963663232323835663162616533663237222c22736574746c656d656e745f7465726d73223a7b22626173655f6665655f6d736174223a302c2264657374696e6174696f6e5f6964656e74697479223a22616c69746865612e6163742e7631222c226d61785f626173655f696e766f6963655f6578706972795f73656373223a302c226d61785f737563636573735f686f6c645f6578706972795f73656373223a302c226d6574686f64223a226f70657261746f725f6c65646765722e7631222c226d696e5f66696e616c5f636c74765f657870697279223a302c22737563636573735f6665655f6d736174223a353030307d2c22776f726b6c6f61645f68617368223a2231313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131222c22776f726b6c6f61645f6b696e64223a2262696f636f6d706173732e6f63692e7631227d5d",
+      "payload_hash": "7a65de6dd58a1e6e6ab74f721d614fee0123ce7dad35cc6e7a6349d1c2173bea"
+    },
+    "receipt": {
+      "artifact": {
+        "artifact_type": "receipt",
+        "created_at": 1700000005,
+        "hash": "014d2bdfa53d846d06d13b584379c7bd4926c7dcd0246b6ea8c595afb096efb8",
+        "payload": {
+          "deal_hash": "24969b4e519fc1e08a2c63c566f724c6409192d5f3c6dfd646f65e0f245d7176",
+          "deal_state": "succeeded",
+          "execution_state": "succeeded",
+          "executor": {
+            "abi_version": "biocompass.oci.v1",
+            "module_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+            "runtime": "container",
+            "runtime_version": "podman-5"
+          },
+          "finished_at": 1700000005,
+          "limits_applied": {
+            "fuel_limit": 0,
+            "max_input_bytes": 1048576,
+            "max_memory_bytes": 1073741824,
+            "max_output_bytes": 10485760,
+            "max_runtime_ms": 120000
+          },
+          "provider_id": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+          "quote_hash": "bc69ca1afd8625e858e122bb62ef2578d65e28ff6a10c18f940f4076c5fd1723",
+          "requester_id": "466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+          "result_format": "application/json",
+          "result_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "settlement_refs": {
+            "base_fee": {
+              "amount_msat": 0,
+              "invoice_hash": "",
+              "payment_hash": "",
+              "state": "canceled"
+            },
+            "destination_identity": "alithea.act.v1",
+            "method": "operator_ledger.v1",
+            "success_fee": {
+              "amount_msat": 5000,
+              "invoice_hash": "",
+              "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+              "state": "settled"
+            }
+          },
+          "settlement_state": "settled",
+          "started_at": 1700000001
+        },
+        "payload_hash": "6f3970a9a6a7ecb236c8f7fb1a5d68a4100c84ebfd9a8bb6a8ac3e8711fb994a",
+        "schema_version": "froglet/v1",
+        "signature": "879d3260f4fe77485e3ed619f39cac0fb07f5f21bf2e40a3f292e38db5d888c9a7713901e4aa4c189792449b912bd73d75fbcf0b7036a7fa17ce86886cd771cb",
+        "signer": "4f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa"
+      },
+      "artifact_hash": "014d2bdfa53d846d06d13b584379c7bd4926c7dcd0246b6ea8c595afb096efb8",
+      "canonical_signing_bytes_hex": "5b2266726f676c65742f7631222c2272656365697074222c2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c313730303030303030352c2236663339373061396136613765636232333663386637666231613564363861343130306338346562666439613862623661386163336538373131666239393461222c7b226465616c5f68617368223a2232343936396234653531396663316530386132633633633536366637323463363430393139326435663363366466643634366636356530663234356437313736222c226465616c5f7374617465223a22737563636565646564222c22657865637574696f6e5f7374617465223a22737563636565646564222c226578656375746f72223a7b226162695f76657273696f6e223a2262696f636f6d706173732e6f63692e7631222c226d6f64756c655f68617368223a2234343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434222c2272756e74696d65223a22636f6e7461696e6572222c2272756e74696d655f76657273696f6e223a22706f646d616e2d35227d2c2266696e69736865645f6174223a313730303030303030352c226c696d6974735f6170706c696564223a7b226675656c5f6c696d6974223a302c226d61785f696e7075745f6279746573223a313034383537362c226d61785f6d656d6f72795f6279746573223a313037333734313832342c226d61785f6f75747075745f6279746573223a31303438353736302c226d61785f72756e74696d655f6d73223a3132303030307d2c2270726f76696465725f6964223a2234663335356264636237636330616637323865663363636562393631356439303638346262356232636135663835396162306630623730343037353837316161222c2271756f74655f68617368223a2262633639636131616664383632356538353865313232626236326566323537386436356532386666366131306331386639343066343037366335666431373233222c227265717565737465725f6964223a2234363664376663616535363365356362303961306431383730626235383033343438303436313738373961313439343963663232323835663162616533663237222c22726573756c745f666f726d6174223a226170706c69636174696f6e2f6a736f6e222c22726573756c745f68617368223a2233333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333222c22736574746c656d656e745f72656673223a7b22626173655f666565223a7b22616d6f756e745f6d736174223a302c22696e766f6963655f68617368223a22222c227061796d656e745f68617368223a22222c227374617465223a2263616e63656c6564227d2c2264657374696e6174696f6e5f6964656e74697479223a22616c69746865612e6163742e7631222c226d6574686f64223a226f70657261746f725f6c65646765722e7631222c22737563636573735f666565223a7b22616d6f756e745f6d736174223a353030302c22696e766f6963655f68617368223a22222c227061796d656e745f68617368223a2231653536623632303663333737663765353061623266616465636364383637373239376534346564323132313665613734323730393435373738636565343466222c227374617465223a22736574746c6564227d7d2c22736574746c656d656e745f7374617465223a22736574746c6564222c22737461727465645f6174223a313730303030303030317d5d",
+      "payload_hash": "6f3970a9a6a7ecb236c8f7fb1a5d68a4100c84ebfd9a8bb6a8ac3e8711fb994a"
+    }
+  },
+  "conformance_path": {
+    "artifact_order": [
+      "descriptor",
+      "offer",
+      "quote",
+      "deal",
+      "receipt"
+    ],
+    "description": "operator_ledger.v1 is a closed-loop reservation-backed method without an invoice_bundle transport artifact."
+  },
+  "fixture_type": "froglet.operator-ledger-settlement-conformance",
+  "fixture_version": 1,
+  "keys": {
+    "provider_seed_hex": "1111111111111111111111111111111111111111111111111111111111111111",
+    "requester_seed_hex": "2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "reservation": {
+    "ledger_identity": "alithea.act.v1",
+    "note": "payment_hash is sha256(reservation_id) and binds Deal.success_payment_hash to Receipt.settlement_refs.success_fee.payment_hash. Settlement finality is an operator-ledger transition keyed to receipt.hash.",
+    "payment_hash": "1e56b6206c377f7e50ab2fadeccd8677297e44ed21216ea74270945778cee44f",
+    "reservation_id": "rsv-019a0000-0000-7000-8000-000000000001"
+  },
+  "schema_version": "froglet/v1",
+  "settlement_method": "operator_ledger.v1"
+}
